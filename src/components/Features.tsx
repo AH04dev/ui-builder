@@ -15,48 +15,69 @@ const features = [
         icon: Layers,
         title: '100+ Components',
         description: 'Beautifully crafted UI components ready for production.',
-        color: '#8b5cf6'
+        gradient: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)'
     },
     {
         icon: Zap,
         title: '50+ Animations',
         description: 'Smooth micro-interactions and stunning transitions.',
-        color: '#22d3ee'
+        gradient: 'linear-gradient(135deg, #f093fb 0%, #f5576c 100%)'
     },
     {
         icon: Palette,
         title: 'Customizable',
         description: 'Easy to customize colors, sizes, and behaviors.',
-        color: '#ec4899'
+        gradient: 'linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)'
     },
     {
         icon: Gauge,
         title: '60fps Performance',
         description: 'Optimized for smooth, native-like experience.',
-        color: '#f59e0b'
+        gradient: 'linear-gradient(135deg, #43e97b 0%, #38f9d7 100%)'
     },
     {
         icon: Smartphone,
         title: 'Cross Platform',
         description: 'Works on React Native & Flutter seamlessly.',
-        color: '#10b981'
+        gradient: 'linear-gradient(135deg, #fa709a 0%, #fee140 100%)'
     },
     {
         icon: Code2,
         title: 'TypeScript',
         description: 'Full type safety and amazing DX.',
-        color: '#6366f1'
+        gradient: 'linear-gradient(135deg, #a8edea 0%, #fed6e3 100%)'
     }
 ];
+
+const container = {
+    hidden: { opacity: 0 },
+    show: {
+        opacity: 1,
+        transition: {
+            staggerChildren: 0.08,
+            delayChildren: 0.1
+        }
+    }
+};
+
+const item = {
+    hidden: { opacity: 0, y: 30, filter: 'blur(10px)' },
+    show: {
+        opacity: 1,
+        y: 0,
+        filter: 'blur(0px)',
+        transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] }
+    }
+};
 
 export default function Features() {
     return (
         <section
             id="features"
             style={{
-                padding: '100px 0',
+                padding: '120px 0',
                 position: 'relative',
-                background: '#060010'
+                background: '#09090B'
             }}
         >
             <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 24px' }}>
@@ -65,97 +86,105 @@ export default function Features() {
                     initial={{ opacity: 0, y: 30 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
-                    transition={{ duration: 0.6 }}
-                    style={{ textAlign: 'center', marginBottom: '60px' }}
+                    transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+                    style={{ textAlign: 'center', marginBottom: '80px' }}
                 >
-                    <span style={{
-                        display: 'inline-block',
-                        padding: '6px 14px',
-                        borderRadius: '100px',
-                        background: 'rgba(236, 72, 153, 0.1)',
-                        border: '1px solid rgba(236, 72, 153, 0.3)',
-                        fontSize: '12px',
-                        color: '#ec4899',
-                        fontWeight: 500,
-                        marginBottom: '20px',
-                        textTransform: 'uppercase',
-                        letterSpacing: '0.1em'
-                    }}>
-                        Features
-                    </span>
+                    <motion.span
+                        style={{
+                            display: 'inline-block',
+                            padding: '8px 16px',
+                            borderRadius: '100px',
+                            background: 'rgba(255, 255, 255, 0.03)',
+                            border: '1px solid rgba(255, 255, 255, 0.08)',
+                            fontSize: '13px',
+                            color: '#A1A1AA',
+                            fontWeight: 500,
+                            marginBottom: '24px',
+                        }}
+                    >
+                        ✦ Features
+                    </motion.span>
                     <h2 style={{
-                        fontSize: 'clamp(32px, 5vw, 48px)',
+                        fontSize: 'clamp(36px, 5vw, 54px)',
                         fontWeight: 700,
-                        marginBottom: '16px',
-                        background: 'linear-gradient(135deg, #ffffff, #a1a1aa)',
-                        WebkitBackgroundClip: 'text',
-                        WebkitTextFillColor: 'transparent'
+                        marginBottom: '20px',
+                        color: '#FAFAFA',
+                        letterSpacing: '-0.03em'
                     }}>
-                        Everything You Need
+                        Everything you need
                     </h2>
                     <p style={{
-                        fontSize: '16px',
-                        color: '#71717a',
-                        maxWidth: '500px',
-                        margin: '0 auto'
+                        fontSize: '17px',
+                        color: '#71717A',
+                        maxWidth: '480px',
+                        margin: '0 auto',
+                        lineHeight: 1.7
                     }}>
-                        A complete toolkit for building world-class mobile applications.
+                        A complete toolkit for building world-class mobile applications with ease.
                     </p>
                 </motion.div>
 
                 {/* Features Grid */}
-                <div style={{
-                    display: 'grid',
-                    gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
-                    gap: '20px'
-                }}>
+                <motion.div
+                    variants={container}
+                    initial="hidden"
+                    whileInView="show"
+                    viewport={{ once: true }}
+                    style={{
+                        display: 'grid',
+                        gridTemplateColumns: 'repeat(auto-fit, minmax(340px, 1fr))',
+                        gap: '16px'
+                    }}
+                >
                     {features.map((feature, index) => (
                         <motion.div
                             key={feature.title}
-                            initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ delay: index * 0.1, duration: 0.4 }}
+                            variants={item}
                             whileHover={{
-                                y: -6,
-                                borderColor: `${feature.color}40`,
-                                boxShadow: `0 20px 40px ${feature.color}15`
+                                y: -4,
+                                borderColor: 'rgba(255, 255, 255, 0.12)'
                             }}
                             style={{
-                                padding: '28px',
-                                borderRadius: '20px',
-                                background: 'rgba(13, 13, 26, 0.6)',
-                                border: '1px solid rgba(139, 92, 246, 0.1)',
+                                padding: '32px',
+                                borderRadius: '24px',
+                                background: 'linear-gradient(145deg, rgba(24, 24, 27, 0.6), rgba(15, 15, 18, 0.8))',
+                                border: '1px solid rgba(255, 255, 255, 0.06)',
                                 cursor: 'pointer',
-                                transition: 'all 0.3s ease'
+                                transition: 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)'
                             }}
                         >
-                            <div style={{
-                                width: '48px',
-                                height: '48px',
-                                borderRadius: '14px',
-                                background: `${feature.color}15`,
-                                display: 'flex',
-                                alignItems: 'center',
-                                justifyContent: 'center',
-                                marginBottom: '20px'
-                            }}>
-                                <feature.icon style={{ width: '24px', height: '24px', color: feature.color }} />
-                            </div>
+                            <motion.div
+                                style={{
+                                    width: '52px',
+                                    height: '52px',
+                                    borderRadius: '14px',
+                                    background: feature.gradient,
+                                    display: 'flex',
+                                    alignItems: 'center',
+                                    justifyContent: 'center',
+                                    marginBottom: '24px',
+                                    boxShadow: `0 8px 32px ${feature.gradient.includes('#667eea') ? 'rgba(102, 126, 234, 0.3)' : 'rgba(0, 0, 0, 0.3)'}`
+                                }}
+                                whileHover={{ scale: 1.05, rotate: 5 }}
+                                transition={{ type: 'spring', stiffness: 400, damping: 17 }}
+                            >
+                                <feature.icon style={{ width: '26px', height: '26px', color: 'white' }} />
+                            </motion.div>
                             <h3 style={{
                                 fontSize: '18px',
                                 fontWeight: 600,
-                                color: 'white',
-                                marginBottom: '8px'
+                                color: '#FAFAFA',
+                                marginBottom: '10px',
+                                letterSpacing: '-0.01em'
                             }}>{feature.title}</h3>
                             <p style={{
                                 fontSize: '14px',
-                                color: '#71717a',
+                                color: '#71717A',
                                 lineHeight: 1.6
                             }}>{feature.description}</p>
                         </motion.div>
                     ))}
-                </div>
+                </motion.div>
             </div>
         </section>
     );

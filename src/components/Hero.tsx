@@ -1,7 +1,7 @@
 'use client';
 
 import { motion, useScroll, useTransform } from 'framer-motion';
-import { ArrowRight, Play, Sparkles, Code2 } from 'lucide-react';
+import { ArrowRight, Code2, Sparkles, Play } from 'lucide-react';
 import { useRef } from 'react';
 import Link from 'next/link';
 
@@ -13,11 +13,13 @@ export default function Hero() {
     });
 
     const y = useTransform(scrollYProgress, [0, 1], [0, 150]);
-    const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
+    const opacity = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
+    const scale = useTransform(scrollYProgress, [0, 1], [1, 0.95]);
 
     return (
         <section
             ref={containerRef}
+            className="mesh-gradient"
             style={{
                 position: 'relative',
                 minHeight: '100vh',
@@ -25,40 +27,26 @@ export default function Hero() {
                 alignItems: 'center',
                 justifyContent: 'center',
                 overflow: 'hidden',
-                background: '#060010'
             }}
         >
-            {/* Animated Grid Background */}
-            <div style={{
+            {/* Dot Grid */}
+            <div className="dot-grid" style={{
                 position: 'absolute',
                 inset: 0,
-                backgroundImage: 'linear-gradient(rgba(139, 92, 246, 0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(139, 92, 246, 0.03) 1px, transparent 1px)',
-                backgroundSize: '60px 60px'
+                opacity: 0.5
             }} />
 
-            {/* Gradient Orbs */}
+            {/* Glow Orb */}
             <motion.div
                 style={{
                     position: 'absolute',
-                    top: '20%',
-                    left: '10%',
+                    top: '30%',
+                    left: '50%',
+                    transform: 'translateX(-50%)',
                     width: '600px',
                     height: '600px',
                     borderRadius: '50%',
-                    background: 'radial-gradient(circle, rgba(139, 92, 246, 0.15) 0%, transparent 70%)',
-                    filter: 'blur(60px)',
-                    y
-                }}
-            />
-            <motion.div
-                style={{
-                    position: 'absolute',
-                    bottom: '10%',
-                    right: '10%',
-                    width: '500px',
-                    height: '500px',
-                    borderRadius: '50%',
-                    background: 'radial-gradient(circle, rgba(34, 211, 238, 0.1) 0%, transparent 70%)',
+                    background: 'radial-gradient(circle, rgba(120, 119, 198, 0.15) 0%, transparent 60%)',
                     filter: 'blur(60px)',
                     y
                 }}
@@ -68,81 +56,92 @@ export default function Hero() {
                 style={{
                     maxWidth: '1000px',
                     margin: '0 auto',
-                    padding: '120px 24px 80px',
+                    padding: '140px 24px 100px',
                     position: 'relative',
                     zIndex: 10,
                     textAlign: 'center',
-                    opacity
+                    opacity,
+                    scale
                 }}
             >
                 {/* Badge */}
                 <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6 }}
+                    initial={{ opacity: 0, y: 30, filter: 'blur(10px)' }}
+                    animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
+                    transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
                 >
-                    <div style={{
-                        display: 'inline-flex',
-                        alignItems: 'center',
-                        gap: '10px',
-                        padding: '8px 16px',
-                        borderRadius: '100px',
-                        background: 'rgba(139, 92, 246, 0.1)',
-                        border: '1px solid rgba(139, 92, 246, 0.3)',
-                        marginBottom: '32px'
-                    }}>
-                        <Sparkles style={{ width: '14px', height: '14px', color: '#a78bfa' }} />
-                        <span style={{ fontSize: '13px', color: '#a78bfa', fontWeight: 500 }}>
-                            Now with React Native & Flutter support
+                    <motion.div
+                        style={{
+                            display: 'inline-flex',
+                            alignItems: 'center',
+                            gap: '10px',
+                            padding: '8px 18px',
+                            borderRadius: '100px',
+                            background: 'rgba(255, 255, 255, 0.03)',
+                            border: '1px solid rgba(255, 255, 255, 0.08)',
+                            marginBottom: '32px',
+                        }}
+                        whileHover={{
+                            borderColor: 'rgba(255, 255, 255, 0.15)',
+                            background: 'rgba(255, 255, 255, 0.05)'
+                        }}
+                    >
+                        <motion.span
+                            style={{
+                                width: '8px',
+                                height: '8px',
+                                borderRadius: '50%',
+                                background: '#22C55E'
+                            }}
+                            animate={{ opacity: [1, 0.5, 1] }}
+                            transition={{ duration: 2, repeat: Infinity }}
+                        />
+                        <span style={{ fontSize: '13px', color: '#A1A1AA', fontWeight: 500 }}>
+                            v2.0 — Now with React Native & Flutter
                         </span>
-                    </div>
+                    </motion.div>
                 </motion.div>
 
                 {/* Main Heading */}
                 <motion.h1
-                    initial={{ opacity: 0, y: 30 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6, delay: 0.1 }}
+                    initial={{ opacity: 0, y: 40, filter: 'blur(10px)' }}
+                    animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
+                    transition={{ duration: 0.8, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
                     style={{
-                        fontSize: 'clamp(40px, 8vw, 80px)',
-                        fontWeight: 800,
-                        lineHeight: 1.1,
-                        marginBottom: '24px',
-                        letterSpacing: '-0.02em'
+                        fontSize: 'clamp(42px, 9vw, 82px)',
+                        fontWeight: 700,
+                        lineHeight: 1.05,
+                        marginBottom: '28px',
+                        letterSpacing: '-0.04em',
                     }}
                 >
-                    Animated UI Components
+                    <span style={{ color: '#FAFAFA' }}>Build beautiful</span>
                     <br />
-                    <span style={{
-                        background: 'linear-gradient(135deg, #8b5cf6 0%, #22d3ee 50%, #ec4899 100%)',
-                        WebkitBackgroundClip: 'text',
-                        WebkitTextFillColor: 'transparent',
-                        backgroundClip: 'text'
-                    }}>For Mobile Apps</span>
+                    <span className="text-gradient">mobile interfaces</span>
                 </motion.h1>
 
                 {/* Subtitle */}
                 <motion.p
-                    initial={{ opacity: 0, y: 30 }}
+                    initial={{ opacity: 0, y: 40 }}
                     animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6, delay: 0.2 }}
+                    transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
                     style={{
                         fontSize: '18px',
-                        color: '#a1a1aa',
-                        maxWidth: '600px',
-                        margin: '0 auto 40px',
-                        lineHeight: 1.7
+                        color: '#71717A',
+                        maxWidth: '560px',
+                        margin: '0 auto 48px',
+                        lineHeight: 1.8
                     }}
                 >
-                    An open source collection of high quality, animated, interactive & fully
-                    customizable components for building stunning mobile user interfaces.
+                    An open-source collection of premium animated components
+                    for building world-class mobile applications.
                 </motion.p>
 
                 {/* CTA Buttons */}
                 <motion.div
-                    initial={{ opacity: 0, y: 30 }}
+                    initial={{ opacity: 0, y: 40 }}
                     animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6, delay: 0.3 }}
+                    transition={{ duration: 0.8, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
                     style={{
                         display: 'flex',
                         flexWrap: 'wrap',
@@ -155,19 +154,22 @@ export default function Hero() {
                         style={{
                             display: 'inline-flex',
                             alignItems: 'center',
-                            gap: '8px',
-                            background: 'linear-gradient(135deg, #8b5cf6, #7c3aed)',
-                            color: 'white',
+                            gap: '10px',
+                            background: '#FAFAFA',
+                            color: '#09090B',
                             padding: '16px 32px',
                             borderRadius: '14px',
                             fontSize: '15px',
                             fontWeight: 600,
                             border: 'none',
                             cursor: 'pointer',
-                            boxShadow: '0 4px 30px rgba(139, 92, 246, 0.4)'
                         }}
-                        whileHover={{ scale: 1.02, boxShadow: '0 8px 40px rgba(139, 92, 246, 0.5)' }}
+                        whileHover={{
+                            scale: 1.02,
+                            boxShadow: '0 0 50px rgba(255, 255, 255, 0.25)'
+                        }}
                         whileTap={{ scale: 0.98 }}
+                        transition={{ type: 'spring', stiffness: 400, damping: 17 }}
                     >
                         Browse Components
                         <ArrowRight style={{ width: '18px', height: '18px' }} />
@@ -177,67 +179,94 @@ export default function Hero() {
                             style={{
                                 display: 'inline-flex',
                                 alignItems: 'center',
-                                gap: '8px',
-                                background: 'rgba(34, 211, 238, 0.1)',
-                                color: 'white',
+                                gap: '10px',
+                                background: 'rgba(255, 255, 255, 0.03)',
+                                color: '#FAFAFA',
                                 padding: '16px 32px',
                                 borderRadius: '14px',
                                 fontSize: '15px',
                                 fontWeight: 600,
-                                border: '1px solid rgba(34, 211, 238, 0.3)',
-                                cursor: 'pointer'
+                                border: '1px solid rgba(255, 255, 255, 0.1)',
+                                cursor: 'pointer',
                             }}
-                            whileHover={{ background: 'rgba(34, 211, 238, 0.2)', borderColor: 'rgba(34, 211, 238, 0.5)' }}
+                            whileHover={{
+                                background: 'rgba(255, 255, 255, 0.06)',
+                                borderColor: 'rgba(255, 255, 255, 0.2)'
+                            }}
                             whileTap={{ scale: 0.98 }}
+                            transition={{ type: 'spring', stiffness: 400, damping: 17 }}
                         >
-                            <Code2 style={{ width: '18px', height: '18px' }} />
+                            <Play style={{ width: '16px', height: '16px', fill: 'currentColor' }} />
                             Try Sandbox
                         </motion.button>
                     </Link>
                 </motion.div>
 
-                {/* Floating Preview Cards */}
+                {/* Preview Cards */}
                 <motion.div
-                    initial={{ opacity: 0, y: 40 }}
+                    initial={{ opacity: 0, y: 60 }}
                     animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8, delay: 0.4 }}
+                    transition={{ duration: 1, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
                     style={{
                         display: 'grid',
                         gridTemplateColumns: 'repeat(3, 1fr)',
                         gap: '16px',
-                        maxWidth: '800px',
+                        maxWidth: '700px',
                         margin: '0 auto'
                     }}
                 >
                     {[
-                        { label: 'Buttons', color: '#8b5cf6' },
-                        { label: 'Cards', color: '#22d3ee' },
-                        { label: 'Animations', color: '#ec4899' }
+                        { label: 'Buttons', icon: '◆' },
+                        { label: 'Cards', icon: '▣' },
+                        { label: 'Animations', icon: '◎' }
                     ].map((item, i) => (
                         <motion.div
                             key={item.label}
-                            animate={{ y: [0, -10, 0] }}
-                            transition={{ duration: 3 + i, repeat: Infinity, ease: 'easeInOut' }}
+                            animate={{ y: [0, -8, 0] }}
+                            transition={{
+                                duration: 3 + i * 0.3,
+                                repeat: Infinity,
+                                ease: 'easeInOut',
+                                delay: i * 0.5
+                            }}
+                            whileHover={{
+                                scale: 1.02,
+                                borderColor: 'rgba(255, 255, 255, 0.15)'
+                            }}
                             style={{
-                                padding: '24px',
-                                borderRadius: '16px',
-                                background: 'rgba(13, 13, 26, 0.8)',
-                                border: `1px solid ${item.color}30`,
-                                backdropFilter: 'blur(10px)'
+                                padding: '28px 20px',
+                                borderRadius: '20px',
+                                background: 'linear-gradient(145deg, rgba(24, 24, 27, 0.8), rgba(15, 15, 18, 0.9))',
+                                border: '1px solid rgba(255, 255, 255, 0.06)',
+                                backdropFilter: 'blur(20px)',
+                                cursor: 'pointer'
                             }}
                         >
                             <div style={{
-                                width: '100%',
-                                height: '80px',
-                                borderRadius: '12px',
-                                background: `linear-gradient(135deg, ${item.color}20, ${item.color}05)`,
-                                marginBottom: '12px'
-                            }} />
-                            <span style={{ fontSize: '14px', color: '#a1a1aa' }}>{item.label}</span>
+                                fontSize: '32px',
+                                marginBottom: '12px',
+                                opacity: 0.6
+                            }}>{item.icon}</div>
+                            <span style={{
+                                fontSize: '14px',
+                                color: '#A1A1AA',
+                                fontWeight: 500
+                            }}>{item.label}</span>
                         </motion.div>
                     ))}
                 </motion.div>
             </motion.div>
+
+            {/* Bottom Gradient Line */}
+            <div style={{
+                position: 'absolute',
+                bottom: 0,
+                left: '50%',
+                transform: 'translateX(-50%)',
+                width: '60%',
+                height: '1px',
+                background: 'linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent)'
+            }} />
         </section>
     );
 }

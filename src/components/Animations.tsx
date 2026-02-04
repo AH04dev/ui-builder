@@ -1,15 +1,15 @@
 'use client';
 
 import { motion, AnimatePresence } from 'framer-motion';
-import { Copy, Check, ChevronRight } from 'lucide-react';
+import { Copy, Check, ChevronRight, Sparkles } from 'lucide-react';
 import { useState } from 'react';
 
 type Platform = 'react-native' | 'flutter';
 
 interface Animation {
     name: string;
+    color: string;
     animation: object;
-    bg: string;
     code: {
         'react-native': string;
         flutter: string;
@@ -19,8 +19,8 @@ interface Animation {
 const animations: Animation[] = [
     {
         name: 'Fade In Up',
+        color: '#667eea',
         animation: { opacity: [0, 1], y: [30, 0] },
-        bg: 'linear-gradient(135deg, #8b5cf6, #6366f1)',
         code: {
             'react-native': `import { FadeInUp } from 'mobileui-pro/animations';
 
@@ -31,15 +31,14 @@ const animations: Animation[] = [
 
 FadeInUp(
   duration: Duration(milliseconds: 600),
-  delay: Duration.zero,
   child: YourWidget(),
 )`
         }
     },
     {
         name: 'Scale Pop',
+        color: '#f093fb',
         animation: { scale: [0, 1.1, 1] },
-        bg: 'linear-gradient(135deg, #22d3ee, #06b6d4)',
         code: {
             'react-native': `import { ScalePop } from 'mobileui-pro/animations';
 
@@ -56,8 +55,8 @@ ScalePop(
     },
     {
         name: 'Rotate In',
+        color: '#4facfe',
         animation: { rotate: [180, 0], scale: [0, 1] },
-        bg: 'linear-gradient(135deg, #ec4899, #f43f5e)',
         code: {
             'react-native': `import { RotateIn } from 'mobileui-pro/animations';
 
@@ -68,34 +67,32 @@ ScalePop(
 
 RotateIn(
   degrees: 180,
-  duration: Duration(milliseconds: 500),
   child: YourWidget(),
 )`
         }
     },
     {
         name: 'Slide In Right',
+        color: '#43e97b',
         animation: { x: [-50, 0], opacity: [0, 1] },
-        bg: 'linear-gradient(135deg, #f59e0b, #f97316)',
         code: {
             'react-native': `import { SlideInRight } from 'mobileui-pro/animations';
 
-<SlideInRight distance={50} duration={400}>
+<SlideInRight distance={50}>
   <YourComponent />
 </SlideInRight>`,
             flutter: `import 'package:mobileui_pro/animations.dart';
 
 SlideInRight(
   distance: 50,
-  duration: Duration(milliseconds: 400),
   child: YourWidget(),
 )`
         }
     },
     {
         name: 'Bounce',
+        color: '#fa709a',
         animation: { y: [0, -20, 0] },
-        bg: 'linear-gradient(135deg, #10b981, #14b8a6)',
         code: {
             'react-native': `import { Bounce } from 'mobileui-pro/animations';
 
@@ -113,8 +110,8 @@ Bounce(
     },
     {
         name: 'Flip',
+        color: '#a8edea',
         animation: { rotateY: [0, 180, 360] },
-        bg: 'linear-gradient(135deg, #6366f1, #8b5cf6)',
         code: {
             'react-native': `import { Flip } from 'mobileui-pro/animations';
 
@@ -125,44 +122,42 @@ Bounce(
 
 Flip(
   axis: Axis.vertical,
-  duration: Duration(milliseconds: 800),
   child: YourWidget(),
 )`
         }
     },
     {
         name: 'Shake',
+        color: '#f5576c',
         animation: { x: [0, -10, 10, -10, 10, 0] },
-        bg: 'linear-gradient(135deg, #f43f5e, #e11d48)',
         code: {
             'react-native': `import { Shake } from 'mobileui-pro/animations';
 
-<Shake intensity={10} onError>
+<Shake intensity={10}>
   <YourComponent />
 </Shake>`,
             flutter: `import 'package:mobileui_pro/animations.dart';
 
 Shake(
   intensity: 10,
-  onError: true,
   child: YourWidget(),
 )`
         }
     },
     {
         name: 'Pulse',
-        animation: { scale: [1, 1.05, 1], opacity: [1, 0.8, 1] },
-        bg: 'linear-gradient(135deg, #a855f7, #9333ea)',
+        color: '#764ba2',
+        animation: { scale: [1, 1.08, 1], opacity: [1, 0.7, 1] },
         code: {
             'react-native': `import { Pulse } from 'mobileui-pro/animations';
 
-<Pulse scale={1.05} loop>
+<Pulse scale={1.08} loop>
   <YourComponent />
 </Pulse>`,
             flutter: `import 'package:mobileui_pro/animations.dart';
 
 Pulse(
-  scale: 1.05,
+  scale: 1.08,
   loop: true,
   child: YourWidget(),
 )`
@@ -185,61 +180,53 @@ export default function Animations() {
         <section
             id="animations"
             style={{
-                padding: '100px 0',
+                padding: '120px 0',
                 position: 'relative',
-                background: 'linear-gradient(180deg, #060010 0%, #0a0a1a 100%)'
+                background: '#09090B'
             }}
         >
-            {/* Section border */}
-            <div style={{
-                position: 'absolute',
-                top: 0,
-                left: '50%',
-                transform: 'translateX(-50%)',
-                width: '80%',
-                height: '1px',
-                background: 'linear-gradient(90deg, transparent, rgba(139, 92, 246, 0.3), transparent)'
-            }} />
-
             <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 24px' }}>
                 {/* Header */}
                 <motion.div
                     initial={{ opacity: 0, y: 30 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
-                    transition={{ duration: 0.6 }}
-                    style={{ textAlign: 'center', marginBottom: '40px' }}
+                    transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+                    style={{ textAlign: 'center', marginBottom: '48px' }}
                 >
-                    <span style={{
-                        display: 'inline-block',
-                        padding: '6px 14px',
-                        borderRadius: '100px',
-                        background: 'rgba(34, 211, 238, 0.1)',
-                        border: '1px solid rgba(34, 211, 238, 0.3)',
-                        fontSize: '12px',
-                        color: '#22d3ee',
-                        fontWeight: 500,
-                        marginBottom: '20px',
-                        textTransform: 'uppercase',
-                        letterSpacing: '0.1em'
-                    }}>
+                    <motion.span
+                        style={{
+                            display: 'inline-flex',
+                            alignItems: 'center',
+                            gap: '8px',
+                            padding: '8px 16px',
+                            borderRadius: '100px',
+                            background: 'rgba(255, 255, 255, 0.03)',
+                            border: '1px solid rgba(255, 255, 255, 0.08)',
+                            fontSize: '13px',
+                            color: '#A1A1AA',
+                            fontWeight: 500,
+                            marginBottom: '24px',
+                        }}
+                    >
+                        <Sparkles size={14} />
                         Animations
-                    </span>
+                    </motion.span>
                     <h2 style={{
-                        fontSize: 'clamp(32px, 5vw, 48px)',
+                        fontSize: 'clamp(36px, 5vw, 54px)',
                         fontWeight: 700,
-                        marginBottom: '16px',
-                        background: 'linear-gradient(135deg, #ffffff, #a1a1aa)',
-                        WebkitBackgroundClip: 'text',
-                        WebkitTextFillColor: 'transparent'
+                        marginBottom: '20px',
+                        color: '#FAFAFA',
+                        letterSpacing: '-0.03em'
                     }}>
-                        Stunning Animations
+                        Stunning animations
                     </h2>
                     <p style={{
-                        fontSize: '16px',
-                        color: '#71717a',
-                        maxWidth: '500px',
-                        margin: '0 auto'
+                        fontSize: '17px',
+                        color: '#71717A',
+                        maxWidth: '480px',
+                        margin: '0 auto',
+                        lineHeight: 1.7
                     }}>
                         50+ smooth, customizable animations for both platforms.
                     </p>
@@ -256,81 +243,67 @@ export default function Animations() {
                         display: 'inline-flex',
                         padding: '4px',
                         borderRadius: '14px',
-                        background: 'rgba(13, 13, 26, 0.8)',
-                        border: '1px solid rgba(34, 211, 238, 0.2)'
+                        background: 'rgba(255, 255, 255, 0.03)',
+                        border: '1px solid rgba(255, 255, 255, 0.08)',
                     }}>
-                        <button
-                            onClick={() => setPlatform('react-native')}
-                            style={{
-                                padding: '12px 24px',
-                                borderRadius: '10px',
-                                fontSize: '14px',
-                                fontWeight: 600,
-                                border: 'none',
-                                cursor: 'pointer',
-                                transition: 'all 0.2s',
-                                background: platform === 'react-native' ? 'linear-gradient(135deg, #8b5cf6, #7c3aed)' : 'transparent',
-                                color: platform === 'react-native' ? 'white' : '#71717a',
-                                boxShadow: platform === 'react-native' ? '0 4px 15px rgba(139, 92, 246, 0.3)' : 'none'
-                            }}
-                        >
-                            React Native
-                        </button>
-                        <button
-                            onClick={() => setPlatform('flutter')}
-                            style={{
-                                padding: '12px 24px',
-                                borderRadius: '10px',
-                                fontSize: '14px',
-                                fontWeight: 600,
-                                border: 'none',
-                                cursor: 'pointer',
-                                transition: 'all 0.2s',
-                                background: platform === 'flutter' ? 'linear-gradient(135deg, #22d3ee, #06b6d4)' : 'transparent',
-                                color: platform === 'flutter' ? 'white' : '#71717a',
-                                boxShadow: platform === 'flutter' ? '0 4px 15px rgba(34, 211, 238, 0.3)' : 'none'
-                            }}
-                        >
-                            Flutter
-                        </button>
+                        {(['react-native', 'flutter'] as Platform[]).map((p) => (
+                            <button
+                                key={p}
+                                onClick={() => setPlatform(p)}
+                                style={{
+                                    padding: '12px 24px',
+                                    borderRadius: '10px',
+                                    fontSize: '14px',
+                                    fontWeight: 600,
+                                    border: 'none',
+                                    cursor: 'pointer',
+                                    transition: 'all 0.3s',
+                                    background: platform === p ? '#FAFAFA' : 'transparent',
+                                    color: platform === p ? '#09090B' : '#71717A',
+                                }}
+                            >
+                                {p === 'react-native' ? 'React Native' : 'Flutter'}
+                            </button>
+                        ))}
                     </div>
                 </motion.div>
 
                 {/* Animations Grid */}
                 <div style={{
                     display: 'grid',
-                    gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))',
-                    gap: '20px'
+                    gridTemplateColumns: 'repeat(auto-fill, minmax(270px, 1fr))',
+                    gap: '16px'
                 }}>
                     {animations.map((anim, index) => (
                         <motion.div
                             key={anim.name}
-                            initial={{ opacity: 0, scale: 0.95 }}
-                            whileInView={{ opacity: 1, scale: 1 }}
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
-                            transition={{ delay: index * 0.05 }}
+                            transition={{ delay: index * 0.05, ease: [0.16, 1, 0.3, 1] }}
                             style={{
                                 borderRadius: '20px',
-                                background: 'rgba(13, 13, 26, 0.6)',
-                                border: '1px solid rgba(139, 92, 246, 0.15)',
+                                background: 'linear-gradient(145deg, rgba(24, 24, 27, 0.8), rgba(15, 15, 18, 0.9))',
+                                border: '1px solid rgba(255, 255, 255, 0.06)',
                                 overflow: 'hidden',
-                                transition: 'all 0.3s ease'
                             }}
                         >
                             {/* Preview */}
                             <div style={{
-                                height: '120px',
+                                height: '110px',
                                 display: 'flex',
                                 alignItems: 'center',
                                 justifyContent: 'center',
-                                borderBottom: '1px solid rgba(139, 92, 246, 0.1)'
+                                background: 'rgba(0, 0, 0, 0.2)',
+                                borderBottom: '1px solid rgba(255, 255, 255, 0.04)'
                             }}>
                                 <motion.div
                                     style={{
-                                        width: '50px',
-                                        height: '50px',
+                                        width: '44px',
+                                        height: '44px',
                                         borderRadius: '12px',
-                                        background: anim.bg
+                                        background: `linear-gradient(135deg, ${anim.color}, ${anim.color}88)`,
+                                        boxShadow: `0 8px 32px ${anim.color}40`
                                     }}
                                     animate={anim.animation}
                                     transition={{
@@ -343,14 +316,13 @@ export default function Animations() {
                             </div>
 
                             {/* Info */}
-                            <div style={{ padding: '16px 20px' }}>
+                            <div style={{ padding: '14px 18px' }}>
                                 <div style={{
                                     display: 'flex',
                                     alignItems: 'center',
                                     justifyContent: 'space-between',
-                                    marginBottom: '8px'
                                 }}>
-                                    <span style={{ fontSize: '14px', fontWeight: 600, color: 'white' }}>{anim.name}</span>
+                                    <span style={{ fontSize: '14px', fontWeight: 600, color: '#FAFAFA' }}>{anim.name}</span>
                                     <motion.button
                                         onClick={() => setExpandedIndex(expandedIndex === index ? null : index)}
                                         style={{
@@ -359,15 +331,14 @@ export default function Animations() {
                                             gap: '4px',
                                             padding: '6px 10px',
                                             borderRadius: '6px',
-                                            background: 'rgba(34, 211, 238, 0.1)',
+                                            background: 'rgba(255, 255, 255, 0.05)',
                                             border: 'none',
-                                            color: '#22d3ee',
+                                            color: '#A1A1AA',
                                             fontSize: '11px',
                                             fontWeight: 500,
                                             cursor: 'pointer'
                                         }}
-                                        whileHover={{ scale: 1.02 }}
-                                        whileTap={{ scale: 0.98 }}
+                                        whileHover={{ background: 'rgba(255, 255, 255, 0.08)' }}
                                     >
                                         Code
                                         <motion.span
@@ -386,11 +357,11 @@ export default function Animations() {
                                             initial={{ height: 0, opacity: 0 }}
                                             animate={{ height: 'auto', opacity: 1 }}
                                             exit={{ height: 0, opacity: 0 }}
-                                            transition={{ duration: 0.3 }}
+                                            transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
                                             style={{ overflow: 'hidden', marginTop: '12px' }}
                                         >
                                             <div style={{
-                                                background: 'rgba(0, 0, 0, 0.4)',
+                                                background: 'rgba(0, 0, 0, 0.3)',
                                                 borderRadius: '10px',
                                                 padding: '12px'
                                             }}>
@@ -402,7 +373,7 @@ export default function Animations() {
                                                 }}>
                                                     <span style={{
                                                         fontSize: '10px',
-                                                        color: platform === 'react-native' ? '#a78bfa' : '#22d3ee',
+                                                        color: '#71717A',
                                                         fontWeight: 600,
                                                         textTransform: 'uppercase'
                                                     }}>
@@ -416,9 +387,9 @@ export default function Animations() {
                                                             gap: '4px',
                                                             padding: '4px 8px',
                                                             borderRadius: '4px',
-                                                            background: copiedIndex === index ? 'rgba(34, 197, 94, 0.2)' : 'rgba(139, 92, 246, 0.15)',
+                                                            background: copiedIndex === index ? 'rgba(34, 197, 94, 0.2)' : 'rgba(255, 255, 255, 0.05)',
                                                             border: 'none',
-                                                            color: copiedIndex === index ? '#22c55e' : '#a78bfa',
+                                                            color: copiedIndex === index ? '#22C55E' : '#A1A1AA',
                                                             fontSize: '10px',
                                                             cursor: 'pointer'
                                                         }}
@@ -430,9 +401,9 @@ export default function Animations() {
                                                 </div>
                                                 <pre style={{
                                                     margin: 0,
-                                                    fontSize: '11px',
-                                                    color: '#a1a1aa',
-                                                    fontFamily: 'monospace',
+                                                    fontSize: '10px',
+                                                    color: '#A1A1AA',
+                                                    fontFamily: 'ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace',
                                                     whiteSpace: 'pre-wrap',
                                                     lineHeight: 1.5
                                                 }}>

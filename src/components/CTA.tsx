@@ -1,80 +1,92 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { ArrowRight, Mail, Sparkles } from 'lucide-react';
+import { ArrowRight, Mail, Sparkles, Zap, Stars } from 'lucide-react';
 
 export default function CTA() {
     return (
         <section
             style={{
-                padding: '120px 0',
+                padding: '140px 0',
                 position: 'relative',
-                background: '#060010'
+                background: '#09090B',
+                overflow: 'hidden'
             }}
         >
-            {/* Gradient Orbs */}
+            {/* Gradient Line Top */}
+            <div style={{
+                position: 'absolute',
+                top: 0,
+                left: '50%',
+                transform: 'translateX(-50%)',
+                width: '60%',
+                height: '1px',
+                background: 'linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent)'
+            }} />
+
+            {/* Background Glow */}
             <div style={{
                 position: 'absolute',
                 top: '50%',
                 left: '50%',
                 transform: 'translate(-50%, -50%)',
                 width: '800px',
-                height: '800px',
+                height: '600px',
                 borderRadius: '50%',
-                background: 'radial-gradient(circle, rgba(139, 92, 246, 0.12) 0%, transparent 60%)',
-                filter: 'blur(60px)',
+                background: 'radial-gradient(circle, rgba(102, 126, 234, 0.08) 0%, transparent 60%)',
+                filter: 'blur(80px)',
                 pointerEvents: 'none'
             }} />
 
             <div style={{ maxWidth: '700px', margin: '0 auto', padding: '0 24px', position: 'relative', zIndex: 10 }}>
                 <motion.div
-                    initial={{ opacity: 0, y: 30 }}
+                    initial={{ opacity: 0, y: 40 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
-                    transition={{ duration: 0.6 }}
+                    transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
                     style={{ textAlign: 'center' }}
                 >
                     {/* Icon */}
                     <motion.div
                         style={{
-                            width: '64px',
-                            height: '64px',
-                            borderRadius: '20px',
-                            background: 'linear-gradient(135deg, #8b5cf6, #7c3aed)',
+                            width: '72px',
+                            height: '72px',
+                            borderRadius: '24px',
+                            background: 'linear-gradient(135deg, #667eea, #764ba2)',
                             display: 'flex',
                             alignItems: 'center',
                             justifyContent: 'center',
-                            margin: '0 auto 32px',
-                            boxShadow: '0 8px 40px rgba(139, 92, 246, 0.4)'
+                            margin: '0 auto 36px',
+                            boxShadow: '0 20px 60px rgba(102, 126, 234, 0.4)'
                         }}
-                        animate={{ rotate: [0, 10, -10, 0] }}
+                        animate={{
+                            rotate: [0, 5, -5, 0],
+                            scale: [1, 1.02, 1]
+                        }}
                         transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
                     >
-                        <Sparkles style={{ width: '32px', height: '32px', color: 'white' }} />
+                        <Stars style={{ width: '36px', height: '36px', color: 'white' }} />
                     </motion.div>
 
                     {/* Heading */}
                     <h2 style={{
-                        fontSize: 'clamp(32px, 6vw, 56px)',
+                        fontSize: 'clamp(36px, 7vw, 60px)',
                         fontWeight: 700,
-                        marginBottom: '20px',
-                        lineHeight: 1.1
+                        marginBottom: '24px',
+                        lineHeight: 1.1,
+                        letterSpacing: '-0.04em'
                     }}>
-                        Ready to build
+                        <span style={{ color: '#FAFAFA' }}>Ready to build</span>
                         <br />
-                        <span style={{
-                            background: 'linear-gradient(135deg, #8b5cf6, #22d3ee)',
-                            WebkitBackgroundClip: 'text',
-                            WebkitTextFillColor: 'transparent'
-                        }}>amazing apps?</span>
+                        <span className="text-gradient">something amazing?</span>
                     </h2>
                     <p style={{
-                        fontSize: '17px',
-                        color: '#71717a',
-                        marginBottom: '40px',
-                        lineHeight: 1.7
+                        fontSize: '18px',
+                        color: '#71717A',
+                        marginBottom: '48px',
+                        lineHeight: 1.8
                     }}>
-                        Join 10,000+ developers who are building stunning mobile apps with MobileUI Pro.
+                        Join 10,000+ developers building stunning mobile apps with MobileUI Pro.
                     </p>
 
                     {/* CTA Buttons */}
@@ -83,25 +95,28 @@ export default function CTA() {
                         flexWrap: 'wrap',
                         justifyContent: 'center',
                         gap: '16px',
-                        marginBottom: '60px'
+                        marginBottom: '72px'
                     }}>
                         <motion.button
                             style={{
                                 display: 'inline-flex',
                                 alignItems: 'center',
-                                gap: '8px',
-                                background: 'linear-gradient(135deg, #8b5cf6, #7c3aed)',
-                                color: 'white',
-                                padding: '16px 32px',
+                                gap: '10px',
+                                background: '#FAFAFA',
+                                color: '#09090B',
+                                padding: '18px 36px',
                                 borderRadius: '14px',
                                 fontSize: '15px',
                                 fontWeight: 600,
                                 border: 'none',
                                 cursor: 'pointer',
-                                boxShadow: '0 4px 30px rgba(139, 92, 246, 0.4)'
                             }}
-                            whileHover={{ scale: 1.02, boxShadow: '0 8px 40px rgba(139, 92, 246, 0.5)' }}
+                            whileHover={{
+                                scale: 1.02,
+                                boxShadow: '0 0 60px rgba(255, 255, 255, 0.3)'
+                            }}
                             whileTap={{ scale: 0.98 }}
+                            transition={{ type: 'spring', stiffness: 400, damping: 17 }}
                         >
                             Get Started Free
                             <ArrowRight size={18} />
@@ -110,18 +125,22 @@ export default function CTA() {
                             style={{
                                 display: 'inline-flex',
                                 alignItems: 'center',
-                                gap: '8px',
-                                background: 'rgba(139, 92, 246, 0.1)',
-                                color: 'white',
-                                padding: '16px 32px',
+                                gap: '10px',
+                                background: 'rgba(255, 255, 255, 0.03)',
+                                color: '#FAFAFA',
+                                padding: '18px 36px',
                                 borderRadius: '14px',
                                 fontSize: '15px',
                                 fontWeight: 600,
-                                border: '1px solid rgba(139, 92, 246, 0.3)',
-                                cursor: 'pointer'
+                                border: '1px solid rgba(255, 255, 255, 0.1)',
+                                cursor: 'pointer',
                             }}
-                            whileHover={{ background: 'rgba(139, 92, 246, 0.2)', borderColor: 'rgba(139, 92, 246, 0.5)' }}
+                            whileHover={{
+                                background: 'rgba(255, 255, 255, 0.06)',
+                                borderColor: 'rgba(255, 255, 255, 0.2)'
+                            }}
                             whileTap={{ scale: 0.98 }}
+                            transition={{ type: 'spring', stiffness: 400, damping: 17 }}
                         >
                             View Documentation
                         </motion.button>
@@ -132,57 +151,62 @@ export default function CTA() {
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
-                        transition={{ delay: 0.2 }}
+                        transition={{ delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
                     >
-                        <p style={{ fontSize: '14px', color: '#52525b', marginBottom: '16px' }}>
+                        <p style={{ fontSize: '14px', color: '#71717A', marginBottom: '20px' }}>
                             Or subscribe for updates and new components
                         </p>
                         <form style={{
                             display: 'flex',
                             gap: '12px',
-                            maxWidth: '400px',
+                            maxWidth: '420px',
                             margin: '0 auto'
                         }}>
                             <div style={{ flex: 1, position: 'relative' }}>
                                 <Mail style={{
                                     position: 'absolute',
-                                    left: '16px',
+                                    left: '18px',
                                     top: '50%',
                                     transform: 'translateY(-50%)',
                                     width: '18px',
                                     height: '18px',
-                                    color: '#52525b'
+                                    color: '#71717A'
                                 }} />
                                 <input
                                     type="email"
                                     placeholder="Enter your email"
                                     style={{
                                         width: '100%',
-                                        background: 'rgba(13, 13, 26, 0.8)',
-                                        border: '1px solid rgba(139, 92, 246, 0.2)',
+                                        background: 'rgba(255, 255, 255, 0.03)',
+                                        border: '1px solid rgba(255, 255, 255, 0.1)',
                                         borderRadius: '12px',
-                                        padding: '14px 16px 14px 48px',
-                                        color: 'white',
+                                        padding: '16px 18px 16px 50px',
+                                        color: '#FAFAFA',
                                         fontSize: '14px',
-                                        outline: 'none'
+                                        outline: 'none',
+                                        transition: 'border-color 0.2s'
                                     }}
                                 />
                             </div>
                             <motion.button
                                 type="submit"
                                 style={{
-                                    padding: '14px 24px',
-                                    background: 'linear-gradient(135deg, #8b5cf6, #7c3aed)',
+                                    padding: '16px 28px',
+                                    background: 'linear-gradient(135deg, #667eea, #764ba2)',
                                     color: 'white',
                                     borderRadius: '12px',
                                     fontSize: '14px',
                                     fontWeight: 600,
                                     border: 'none',
                                     cursor: 'pointer',
-                                    boxShadow: '0 4px 20px rgba(139, 92, 246, 0.3)'
+                                    boxShadow: '0 8px 32px rgba(102, 126, 234, 0.4)'
                                 }}
-                                whileHover={{ scale: 1.02 }}
+                                whileHover={{
+                                    scale: 1.02,
+                                    boxShadow: '0 12px 40px rgba(102, 126, 234, 0.5)'
+                                }}
                                 whileTap={{ scale: 0.98 }}
+                                transition={{ type: 'spring', stiffness: 400, damping: 17 }}
                             >
                                 Subscribe
                             </motion.button>
