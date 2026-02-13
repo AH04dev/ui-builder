@@ -21,21 +21,21 @@ const components: Component[] = [
     {
         name: 'Animated Button',
         category: 'Buttons',
-        color: '#667eea',
+        color: '#10B981',
         preview: (
             <motion.button
                 style={{
                     padding: '14px 28px',
-                    background: 'linear-gradient(135deg, #667eea, #764ba2)',
+                    background: 'linear-gradient(135deg, #10B981, #06B6D4)',
                     color: 'white',
                     borderRadius: '12px',
                     border: 'none',
                     fontWeight: 600,
                     fontSize: '14px',
                     cursor: 'pointer',
-                    boxShadow: '0 8px 32px rgba(102, 126, 234, 0.4)'
+                    boxShadow: '0 8px 32px rgba(16, 185, 129, 0.3)'
                 }}
-                whileHover={{ scale: 1.05, boxShadow: '0 12px 40px rgba(102, 126, 234, 0.5)' }}
+                whileHover={{ scale: 1.05, boxShadow: '0 12px 40px rgba(16, 185, 129, 0.4)' }}
                 whileTap={{ scale: 0.95 }}
                 transition={{ type: 'spring', stiffness: 400, damping: 17 }}
             >
@@ -62,23 +62,23 @@ AnimatedButton(
     {
         name: 'Gradient Card',
         category: 'Cards',
-        color: '#667eea',
+        color: '#06B6D4',
         preview: (
             <motion.div
                 style={{
                     width: '140px',
                     padding: '20px',
-                    background: 'linear-gradient(145deg, rgba(24, 24, 27, 0.9), rgba(15, 15, 18, 0.95))',
+                    background: 'linear-gradient(145deg, rgba(17, 17, 24, 0.9), rgba(10, 10, 15, 0.95))',
                     borderRadius: '16px',
-                    border: '1px solid rgba(102, 126, 234, 0.2)',
-                    boxShadow: '0 8px 32px rgba(102, 126, 234, 0.15)'
+                    border: '1px solid rgba(6, 182, 212, 0.2)',
+                    boxShadow: '0 8px 32px rgba(6, 182, 212, 0.1)'
                 }}
-                whileHover={{ scale: 1.02, borderColor: 'rgba(102, 126, 234, 0.4)' }}
+                whileHover={{ scale: 1.02, borderColor: 'rgba(6, 182, 212, 0.4)' }}
                 transition={{ type: 'spring', stiffness: 400, damping: 17 }}
             >
-                <div style={{ width: '28px', height: '28px', borderRadius: '8px', background: 'linear-gradient(135deg, #667eea, #764ba2)', marginBottom: '12px' }} />
-                <div style={{ fontSize: '13px', fontWeight: 600, color: '#FAFAFA', marginBottom: '4px' }}>Card Title</div>
-                <div style={{ fontSize: '11px', color: '#71717A' }}>Description</div>
+                <div style={{ width: '28px', height: '28px', borderRadius: '8px', background: 'linear-gradient(135deg, #06B6D4, #22D3EE)', marginBottom: '12px' }} />
+                <div style={{ fontSize: '13px', fontWeight: 600, color: '#F0F0F5', marginBottom: '4px' }}>Card Title</div>
+                <div style={{ fontSize: '11px', color: '#6B7280' }}>Description</div>
             </motion.div>
         ),
         code: {
@@ -101,7 +101,7 @@ GradientCard(
     {
         name: 'Pulse Loader',
         category: 'Loaders',
-        color: '#4facfe',
+        color: '#22D3EE',
         preview: (
             <div style={{ display: 'flex', gap: '8px', justifyContent: 'center' }}>
                 {[0, 1, 2].map((i) => (
@@ -111,7 +111,7 @@ GradientCard(
                             width: '12px',
                             height: '12px',
                             borderRadius: '50%',
-                            background: 'linear-gradient(135deg, #4facfe, #00f2fe)'
+                            background: 'linear-gradient(135deg, #06B6D4, #22D3EE)'
                         }}
                         animate={{ scale: [1, 1.4, 1], opacity: [1, 0.5, 1] }}
                         transition={{ duration: 1, repeat: Infinity, delay: i * 0.15 }}
@@ -139,12 +139,12 @@ PulseLoader(
     {
         name: 'Gradient Input',
         category: 'Forms',
-        color: '#43e97b',
+        color: '#10B981',
         preview: (
             <div style={{
                 padding: '2px',
                 borderRadius: '12px',
-                background: 'linear-gradient(135deg, #43e97b, #38f9d7)',
+                background: 'linear-gradient(135deg, #10B981, #34D399)',
                 width: '160px'
             }}>
                 <input
@@ -155,8 +155,8 @@ PulseLoader(
                         padding: '12px 16px',
                         borderRadius: '10px',
                         border: 'none',
-                        background: '#18181B',
-                        color: '#FAFAFA',
+                        background: '#111118',
+                        color: '#F0F0F5',
                         fontSize: '13px',
                         outline: 'none'
                     }}
@@ -184,16 +184,16 @@ GradientInput(
     {
         name: 'Toggle Switch',
         category: 'Controls',
-        color: '#fa709a',
+        color: '#F59E0B',
         preview: (
             <div style={{
                 width: '52px',
                 height: '28px',
                 borderRadius: '14px',
-                background: 'linear-gradient(135deg, #fa709a, #fee140)',
+                background: 'linear-gradient(135deg, #F59E0B, #EF4444)',
                 padding: '3px',
                 cursor: 'pointer',
-                boxShadow: '0 4px 20px rgba(250, 112, 154, 0.4)'
+                boxShadow: '0 4px 20px rgba(245, 158, 11, 0.3)'
             }}>
                 <motion.div
                     style={{
@@ -227,26 +227,26 @@ AnimatedSwitch(
     {
         name: 'Floating Action',
         category: 'Buttons',
-        color: '#a8edea',
+        color: '#06B6D4',
         preview: (
             <motion.button
                 style={{
                     width: '52px',
                     height: '52px',
                     borderRadius: '16px',
-                    background: 'linear-gradient(135deg, #a8edea, #fed6e3)',
+                    background: 'linear-gradient(135deg, #10B981, #06B6D4)',
                     border: 'none',
                     cursor: 'pointer',
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
-                    boxShadow: '0 8px 32px rgba(168, 237, 234, 0.4)'
+                    boxShadow: '0 8px 32px rgba(16, 185, 129, 0.3)'
                 }}
                 whileHover={{ scale: 1.1, rotate: 90 }}
                 whileTap={{ scale: 0.9 }}
                 transition={{ type: 'spring', stiffness: 400, damping: 17 }}
             >
-                <span style={{ fontSize: '24px', color: '#09090B', fontWeight: 300 }}>+</span>
+                <span style={{ fontSize: '24px', color: '#FFFFFF', fontWeight: 300 }}>+</span>
             </motion.button>
         ),
         code: {
@@ -269,14 +269,14 @@ FloatingActionButton(
     {
         name: 'Progress Ring',
         category: 'Progress',
-        color: '#667eea',
+        color: '#10B981',
         preview: (
             <div style={{ position: 'relative', width: '56px', height: '56px' }}>
                 <svg width="56" height="56" style={{ transform: 'rotate(-90deg)' }}>
-                    <circle cx="28" cy="28" r="22" fill="none" stroke="rgba(255,255,255,0.1)" strokeWidth="4" />
+                    <circle cx="28" cy="28" r="22" fill="none" stroke="rgba(255,255,255,0.06)" strokeWidth="4" />
                     <motion.circle
                         cx="28" cy="28" r="22" fill="none"
-                        stroke="url(#gradient)"
+                        stroke="url(#gradient-new)"
                         strokeWidth="4"
                         strokeLinecap="round"
                         initial={{ pathLength: 0 }}
@@ -285,9 +285,9 @@ FloatingActionButton(
                         style={{ strokeDasharray: '138', strokeDashoffset: '0' }}
                     />
                     <defs>
-                        <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                            <stop offset="0%" stopColor="#667eea" />
-                            <stop offset="100%" stopColor="#764ba2" />
+                        <linearGradient id="gradient-new" x1="0%" y1="0%" x2="100%" y2="0%">
+                            <stop offset="0%" stopColor="#10B981" />
+                            <stop offset="100%" stopColor="#06B6D4" />
                         </linearGradient>
                     </defs>
                 </svg>
@@ -298,7 +298,7 @@ FloatingActionButton(
                     transform: 'translate(-50%, -50%)',
                     fontSize: '13px',
                     fontWeight: 600,
-                    color: '#FAFAFA'
+                    color: '#F0F0F5'
                 }}>75%</span>
             </div>
         ),
@@ -324,22 +324,22 @@ ProgressRing(
     {
         name: 'Skeleton Loader',
         category: 'Loaders',
-        color: '#71717A',
+        color: '#6B7280',
         preview: (
             <div style={{ display: 'flex', gap: '12px', alignItems: 'center' }}>
                 <motion.div
-                    style={{ width: '36px', height: '36px', borderRadius: '50%', background: 'rgba(255, 255, 255, 0.08)' }}
+                    style={{ width: '36px', height: '36px', borderRadius: '50%', background: 'rgba(255, 255, 255, 0.06)' }}
                     animate={{ opacity: [0.3, 0.6, 0.3] }}
                     transition={{ duration: 1.5, repeat: Infinity }}
                 />
                 <div>
                     <motion.div
-                        style={{ height: '10px', width: '80px', borderRadius: '5px', background: 'rgba(255, 255, 255, 0.08)', marginBottom: '6px' }}
+                        style={{ height: '10px', width: '80px', borderRadius: '5px', background: 'rgba(255, 255, 255, 0.06)', marginBottom: '6px' }}
                         animate={{ opacity: [0.3, 0.6, 0.3] }}
                         transition={{ duration: 1.5, repeat: Infinity, delay: 0.1 }}
                     />
                     <motion.div
-                        style={{ height: '8px', width: '60px', borderRadius: '4px', background: 'rgba(255, 255, 255, 0.08)' }}
+                        style={{ height: '8px', width: '60px', borderRadius: '4px', background: 'rgba(255, 255, 255, 0.06)' }}
                         animate={{ opacity: [0.3, 0.6, 0.3] }}
                         transition={{ duration: 1.5, repeat: Infinity, delay: 0.2 }}
                     />
@@ -388,10 +388,11 @@ export default function ComponentShowcase() {
     return (
         <section
             id="components"
-            className="mesh-gradient"
+            className="mesh-gradient-alt"
             style={{
                 padding: '120px 0',
                 position: 'relative',
+                background: '#0A0A0F',
             }}
         >
             <div className="dot-grid" style={{ position: 'absolute', inset: 0, opacity: 0.3 }} />
@@ -412,10 +413,10 @@ export default function ComponentShowcase() {
                             gap: '8px',
                             padding: '8px 16px',
                             borderRadius: '100px',
-                            background: 'rgba(255, 255, 255, 0.03)',
-                            border: '1px solid rgba(255, 255, 255, 0.08)',
+                            background: 'rgba(16, 185, 129, 0.06)',
+                            border: '1px solid rgba(16, 185, 129, 0.15)',
                             fontSize: '13px',
-                            color: '#A1A1AA',
+                            color: '#34D399',
                             fontWeight: 500,
                             marginBottom: '24px',
                         }}
@@ -423,18 +424,18 @@ export default function ComponentShowcase() {
                         <Sparkles size={14} />
                         Components
                     </motion.span>
-                    <h2 style={{
+                    <h2 className="font-display" style={{
                         fontSize: 'clamp(36px, 5vw, 54px)',
                         fontWeight: 700,
                         marginBottom: '20px',
-                        color: '#FAFAFA',
+                        color: '#F0F0F5',
                         letterSpacing: '-0.03em'
                     }}>
                         Ready-to-use UI components
                     </h2>
                     <p style={{
                         fontSize: '17px',
-                        color: '#71717A',
+                        color: '#6B7280',
                         maxWidth: '500px',
                         margin: '0 auto',
                         lineHeight: 1.7
@@ -455,7 +456,7 @@ export default function ComponentShowcase() {
                         padding: '4px',
                         borderRadius: '14px',
                         background: 'rgba(255, 255, 255, 0.03)',
-                        border: '1px solid rgba(255, 255, 255, 0.08)',
+                        border: '1px solid rgba(255, 255, 255, 0.06)',
                     }}>
                         {(['react-native', 'flutter'] as Platform[]).map((p) => (
                             <button
@@ -469,8 +470,10 @@ export default function ComponentShowcase() {
                                     border: 'none',
                                     cursor: 'pointer',
                                     transition: 'all 0.3s',
-                                    background: platform === p ? '#FAFAFA' : 'transparent',
-                                    color: platform === p ? '#09090B' : '#71717A',
+                                    background: platform === p
+                                        ? 'linear-gradient(135deg, #10B981, #06B6D4)'
+                                        : 'transparent',
+                                    color: platform === p ? '#FFFFFF' : '#6B7280',
                                 }}
                             >
                                 {p === 'react-native' ? 'React Native' : 'Flutter'}
@@ -504,10 +507,10 @@ export default function ComponentShowcase() {
                                 border: 'none',
                                 cursor: 'pointer',
                                 transition: 'all 0.2s',
-                                background: selectedCategory === cat ? 'rgba(255, 255, 255, 0.1)' : 'transparent',
-                                color: selectedCategory === cat ? '#FAFAFA' : '#71717A'
+                                background: selectedCategory === cat ? 'rgba(16, 185, 129, 0.12)' : 'transparent',
+                                color: selectedCategory === cat ? '#34D399' : '#6B7280'
                             }}
-                            whileHover={{ color: '#FAFAFA' }}
+                            whileHover={{ color: '#F0F0F5' }}
                         >
                             {cat}
                         </motion.button>
@@ -530,10 +533,11 @@ export default function ComponentShowcase() {
                                 exit={{ opacity: 0, scale: 0.95 }}
                                 transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
                                 style={{
-                                    background: 'linear-gradient(145deg, rgba(24, 24, 27, 0.8), rgba(15, 15, 18, 0.9))',
+                                    background: 'linear-gradient(145deg, rgba(17, 17, 24, 0.85), rgba(10, 10, 15, 0.95))',
                                     borderRadius: '20px',
-                                    border: '1px solid rgba(255, 255, 255, 0.06)',
+                                    border: '1px solid rgba(255, 255, 255, 0.05)',
                                     overflow: 'hidden',
+                                    transition: 'border-color 0.3s',
                                 }}
                             >
                                 {/* Preview */}
@@ -542,7 +546,7 @@ export default function ComponentShowcase() {
                                     display: 'flex',
                                     alignItems: 'center',
                                     justifyContent: 'center',
-                                    background: 'rgba(0, 0, 0, 0.2)',
+                                    background: 'rgba(0, 0, 0, 0.3)',
                                     borderBottom: '1px solid rgba(255, 255, 255, 0.04)'
                                 }}>
                                     {component.preview}
@@ -557,8 +561,8 @@ export default function ComponentShowcase() {
                                         marginBottom: '12px'
                                     }}>
                                         <div>
-                                            <div style={{ fontSize: '14px', fontWeight: 600, color: '#FAFAFA' }}>{component.name}</div>
-                                            <div style={{ fontSize: '12px', color: '#71717A' }}>{component.category}</div>
+                                            <div style={{ fontSize: '14px', fontWeight: 600, color: '#F0F0F5' }}>{component.name}</div>
+                                            <div style={{ fontSize: '12px', color: '#6B7280' }}>{component.category}</div>
                                         </div>
                                         <motion.button
                                             onClick={() => setExpandedIndex(expandedIndex === index ? null : index)}
@@ -568,14 +572,14 @@ export default function ComponentShowcase() {
                                                 gap: '4px',
                                                 padding: '8px 12px',
                                                 borderRadius: '8px',
-                                                background: 'rgba(255, 255, 255, 0.05)',
+                                                background: expandedIndex === index ? 'rgba(16, 185, 129, 0.1)' : 'rgba(255, 255, 255, 0.04)',
                                                 border: 'none',
-                                                color: '#A1A1AA',
+                                                color: expandedIndex === index ? '#34D399' : '#9CA3AF',
                                                 fontSize: '12px',
                                                 fontWeight: 500,
                                                 cursor: 'pointer'
                                             }}
-                                            whileHover={{ background: 'rgba(255, 255, 255, 0.08)', color: '#FAFAFA' }}
+                                            whileHover={{ background: 'rgba(16, 185, 129, 0.1)', color: '#34D399' }}
                                         >
                                             Code
                                             <motion.span
@@ -598,10 +602,11 @@ export default function ComponentShowcase() {
                                                 style={{ overflow: 'hidden' }}
                                             >
                                                 <div style={{
-                                                    background: 'rgba(0, 0, 0, 0.3)',
+                                                    background: 'rgba(0, 0, 0, 0.4)',
                                                     borderRadius: '12px',
                                                     padding: '14px',
-                                                    marginTop: '8px'
+                                                    marginTop: '8px',
+                                                    border: '1px solid rgba(16, 185, 129, 0.08)',
                                                 }}>
                                                     <div style={{
                                                         display: 'flex',
@@ -611,7 +616,7 @@ export default function ComponentShowcase() {
                                                     }}>
                                                         <span style={{
                                                             fontSize: '11px',
-                                                            color: '#71717A',
+                                                            color: '#6B7280',
                                                             fontWeight: 600,
                                                             textTransform: 'uppercase',
                                                             letterSpacing: '0.05em'
@@ -626,9 +631,9 @@ export default function ComponentShowcase() {
                                                                 gap: '6px',
                                                                 padding: '6px 10px',
                                                                 borderRadius: '6px',
-                                                                background: copiedIndex === index ? 'rgba(34, 197, 94, 0.2)' : 'rgba(255, 255, 255, 0.05)',
+                                                                background: copiedIndex === index ? 'rgba(16, 185, 129, 0.15)' : 'rgba(255, 255, 255, 0.04)',
                                                                 border: 'none',
-                                                                color: copiedIndex === index ? '#22C55E' : '#A1A1AA',
+                                                                color: copiedIndex === index ? '#10B981' : '#9CA3AF',
                                                                 fontSize: '11px',
                                                                 cursor: 'pointer'
                                                             }}
@@ -641,7 +646,7 @@ export default function ComponentShowcase() {
                                                     <pre style={{
                                                         margin: 0,
                                                         fontSize: '11px',
-                                                        color: '#A1A1AA',
+                                                        color: '#9CA3AF',
                                                         fontFamily: 'ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace',
                                                         whiteSpace: 'pre-wrap',
                                                         lineHeight: 1.6

@@ -15,37 +15,43 @@ const features = [
         icon: Layers,
         title: '100+ Components',
         description: 'Beautifully crafted UI components ready for production.',
-        gradient: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)'
+        color: '#10B981',
+        span: false,
     },
     {
         icon: Zap,
         title: '50+ Animations',
         description: 'Smooth micro-interactions and stunning transitions.',
-        gradient: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)'
+        color: '#06B6D4',
+        span: false,
     },
     {
         icon: Palette,
         title: 'Customizable',
         description: 'Easy to customize colors, sizes, and behaviors.',
-        gradient: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)'
+        color: '#F59E0B',
+        span: false,
     },
     {
         icon: Gauge,
         title: '60fps Performance',
         description: 'Optimized for smooth, native-like experience.',
-        gradient: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)'
+        color: '#10B981',
+        span: false,
     },
     {
         icon: Smartphone,
         title: 'Cross Platform',
         description: 'Works on React Native & Flutter seamlessly.',
-        gradient: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)'
+        color: '#06B6D4',
+        span: false,
     },
     {
         icon: Code2,
         title: 'TypeScript',
         description: 'Full type safety and amazing DX.',
-        gradient: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)'
+        color: '#22D3EE',
+        span: false,
     }
 ];
 
@@ -77,10 +83,12 @@ export default function Features() {
             style={{
                 padding: '120px 0',
                 position: 'relative',
-                background: '#09090B'
+                background: '#050505'
             }}
         >
-            <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 24px' }}>
+            <div className="dot-grid" style={{ position: 'absolute', inset: 0, opacity: 0.3 }} />
+
+            <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 24px', position: 'relative', zIndex: 10 }}>
                 {/* Header */}
                 <motion.div
                     initial={{ opacity: 0, y: 30 }}
@@ -94,28 +102,28 @@ export default function Features() {
                             display: 'inline-block',
                             padding: '8px 16px',
                             borderRadius: '100px',
-                            background: 'rgba(255, 255, 255, 0.03)',
-                            border: '1px solid rgba(255, 255, 255, 0.08)',
+                            background: 'rgba(16, 185, 129, 0.08)',
+                            border: '1px solid rgba(16, 185, 129, 0.2)',
                             fontSize: '13px',
-                            color: '#A1A1AA',
+                            color: '#34D399',
                             fontWeight: 500,
                             marginBottom: '24px',
                         }}
                     >
                         ✦ Features
                     </motion.span>
-                    <h2 style={{
+                    <h2 className="font-display" style={{
                         fontSize: 'clamp(36px, 5vw, 54px)',
                         fontWeight: 700,
                         marginBottom: '20px',
-                        color: '#FAFAFA',
+                        color: '#F0F0F5',
                         letterSpacing: '-0.03em'
                     }}>
                         Everything you need
                     </h2>
                     <p style={{
                         fontSize: '17px',
-                        color: '#71717A',
+                        color: '#6B7280',
                         maxWidth: '480px',
                         margin: '0 auto',
                         lineHeight: 1.7
@@ -142,44 +150,61 @@ export default function Features() {
                             variants={item}
                             whileHover={{
                                 y: -4,
-                                borderColor: 'rgba(255, 255, 255, 0.12)'
+                                borderColor: `${feature.color}33`,
                             }}
                             style={{
                                 padding: '32px',
                                 borderRadius: '24px',
-                                background: 'linear-gradient(145deg, rgba(24, 24, 27, 0.6), rgba(15, 15, 18, 0.8))',
-                                border: '1px solid rgba(255, 255, 255, 0.06)',
+                                background: 'linear-gradient(145deg, rgba(17, 17, 24, 0.7), rgba(10, 10, 15, 0.85))',
+                                border: '1px solid rgba(255, 255, 255, 0.05)',
                                 cursor: 'pointer',
-                                transition: 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)'
+                                transition: 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)',
+                                position: 'relative',
+                                overflow: 'hidden',
                             }}
                         >
+                            {/* Hover glow */}
+                            <div style={{
+                                position: 'absolute',
+                                top: '-20px',
+                                left: '-20px',
+                                width: '100px',
+                                height: '100px',
+                                borderRadius: '50%',
+                                background: feature.color,
+                                opacity: 0.06,
+                                filter: 'blur(40px)',
+                                pointerEvents: 'none',
+                            }} />
+
                             <motion.div
                                 style={{
                                     width: '52px',
                                     height: '52px',
                                     borderRadius: '14px',
-                                    background: feature.gradient,
+                                    background: `linear-gradient(135deg, ${feature.color}20, ${feature.color}10)`,
+                                    border: `1px solid ${feature.color}30`,
                                     display: 'flex',
                                     alignItems: 'center',
                                     justifyContent: 'center',
                                     marginBottom: '24px',
-                                    boxShadow: `0 8px 32px ${feature.gradient.includes('#667eea') ? 'rgba(102, 126, 234, 0.3)' : 'rgba(0, 0, 0, 0.3)'}`
+                                    position: 'relative',
                                 }}
                                 whileHover={{ scale: 1.05, rotate: 5 }}
                                 transition={{ type: 'spring', stiffness: 400, damping: 17 }}
                             >
-                                <feature.icon style={{ width: '26px', height: '26px', color: 'white' }} />
+                                <feature.icon style={{ width: '26px', height: '26px', color: feature.color }} />
                             </motion.div>
                             <h3 style={{
                                 fontSize: '18px',
                                 fontWeight: 600,
-                                color: '#FAFAFA',
+                                color: '#F0F0F5',
                                 marginBottom: '10px',
                                 letterSpacing: '-0.01em'
                             }}>{feature.title}</h3>
                             <p style={{
                                 fontSize: '14px',
-                                color: '#71717A',
+                                color: '#6B7280',
                                 lineHeight: 1.6
                             }}>{feature.description}</p>
                         </motion.div>

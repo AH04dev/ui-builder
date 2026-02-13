@@ -31,27 +31,37 @@ export default function Navbar() {
                 left: 0,
                 right: 0,
                 zIndex: 100,
-                pointerEvents: 'none', // Allow clicks to pass through around the navbar
+                pointerEvents: 'none',
                 display: 'flex',
                 justifyContent: 'center',
-                paddingTop: '24px',
+                paddingTop: '20px',
             }}
         >
             <motion.div
+                animate={{
+                    borderColor: isScrolled
+                        ? 'rgba(16, 185, 129, 0.15)'
+                        : 'rgba(255, 255, 255, 0.06)',
+                    background: isScrolled
+                        ? 'rgba(5, 5, 5, 0.85)'
+                        : 'rgba(5, 5, 5, 0.5)',
+                }}
+                transition={{ duration: 0.3 }}
                 style={{
-                    pointerEvents: 'auto', // Re-enable clicks for the navbar itself
+                    pointerEvents: 'auto',
                     width: 'calc(100% - 32px)',
                     maxWidth: '1000px',
                     padding: '8px 8px 8px 24px',
-                    background: 'rgba(9, 9, 11, 0.6)',
                     backdropFilter: 'blur(24px)',
                     WebkitBackdropFilter: 'blur(24px)',
-                    border: '1px solid rgba(255, 255, 255, 0.08)',
+                    border: '1px solid rgba(255, 255, 255, 0.06)',
                     borderRadius: '100px',
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'space-between',
-                    boxShadow: '0 8px 32px -8px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(0,0,0,0.2)',
+                    boxShadow: isScrolled
+                        ? '0 8px 40px -8px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(0,0,0,0.3), 0 0 60px rgba(16, 185, 129, 0.04)'
+                        : '0 8px 32px -8px rgba(0, 0, 0, 0.5)',
                 }}
             >
                 {/* Logo */}
@@ -73,28 +83,28 @@ export default function Navbar() {
                             position: 'absolute',
                             inset: 0,
                             borderRadius: '10px',
-                            background: 'linear-gradient(135deg, #667eea, #764ba2)',
-                            opacity: 0.2
+                            background: 'linear-gradient(135deg, #10B981, #06B6D4)',
+                            opacity: 0.25
                         }} />
-                        <Zap size={18} color="#FAFAFA" fill="currentColor" />
+                        <Zap size={18} color="#10B981" fill="currentColor" />
                     </div>
                     <span style={{
                         fontSize: '18px',
                         fontWeight: 700,
-                        color: '#FAFAFA',
+                        color: '#F0F0F5',
                         letterSpacing: '-0.02em',
-                        fontFeatureSettings: '"ss01" 1'
+                        fontFamily: 'var(--font-display), sans-serif',
                     }}>Native Bits</span>
                 </motion.a>
 
                 {/* Desktop Nav */}
-                <div style={{ display: 'flex', alignItems: 'center', gap: '2px', background: 'rgba(255,255,255,0.03)', padding: '4px', borderRadius: '100px' }} className="hidden md:flex">
+                <div style={{ display: 'flex', alignItems: 'center', gap: '2px', background: 'rgba(255,255,255,0.02)', padding: '4px', borderRadius: '100px' }} className="hidden md:flex">
                     {navLinks.map((link) => (
                         <motion.a
                             key={link.name}
                             href={link.href}
                             style={{
-                                color: '#A1A1AA',
+                                color: '#9CA3AF',
                                 textDecoration: 'none',
                                 fontSize: '13px',
                                 fontWeight: 500,
@@ -104,8 +114,8 @@ export default function Navbar() {
                                 position: 'relative'
                             }}
                             whileHover={{
-                                color: '#FAFAFA',
-                                background: 'rgba(255, 255, 255, 0.08)'
+                                color: '#F0F0F5',
+                                background: 'rgba(16, 185, 129, 0.08)'
                             }}
                         >
                             {link.name}
@@ -118,7 +128,7 @@ export default function Navbar() {
                     <motion.a
                         href="#"
                         style={{
-                            color: '#A1A1AA',
+                            color: '#9CA3AF',
                             padding: '10px',
                             borderRadius: '50%',
                             display: 'flex',
@@ -126,20 +136,20 @@ export default function Navbar() {
                             justifyContent: 'center',
                             transition: 'color 0.2s'
                         }}
-                        whileHover={{ color: '#FAFAFA', background: 'rgba(255,255,255,0.05)' }}
+                        whileHover={{ color: '#F0F0F5', background: 'rgba(255,255,255,0.05)' }}
                     >
                         <Github size={20} />
                     </motion.a>
 
                     <motion.button
                         style={{
-                            background: 'rgba(236, 72, 153, 0.1)',
-                            color: '#F472B6',
+                            background: 'rgba(245, 158, 11, 0.1)',
+                            color: '#F59E0B',
                             padding: '10px 20px',
                             borderRadius: '100px',
                             fontSize: '13px',
                             fontWeight: 600,
-                            border: '1px solid rgba(236, 72, 153, 0.2)',
+                            border: '1px solid rgba(245, 158, 11, 0.2)',
                             cursor: 'pointer',
                             display: 'flex',
                             alignItems: 'center',
@@ -147,8 +157,8 @@ export default function Navbar() {
                         }}
                         whileHover={{
                             scale: 1.05,
-                            background: 'rgba(236, 72, 153, 0.2)',
-                            boxShadow: '0 0 20px rgba(236, 72, 153, 0.2)'
+                            background: 'rgba(245, 158, 11, 0.15)',
+                            boxShadow: '0 0 20px rgba(245, 158, 11, 0.15)'
                         }}
                         whileTap={{ scale: 0.95 }}
                         transition={{ duration: 0.2 }}
@@ -159,8 +169,8 @@ export default function Navbar() {
 
                     <motion.button
                         style={{
-                            background: '#FAFAFA',
-                            color: '#09090B',
+                            background: 'linear-gradient(135deg, #10B981, #06B6D4)',
+                            color: '#FFFFFF',
                             padding: '10px 20px',
                             borderRadius: '100px',
                             fontSize: '13px',
@@ -173,7 +183,7 @@ export default function Navbar() {
                         }}
                         whileHover={{
                             scale: 1.05,
-                            boxShadow: '0 0 20px rgba(255, 255, 255, 0.3)'
+                            boxShadow: '0 0 30px rgba(16, 185, 129, 0.35)'
                         }}
                         whileTap={{ scale: 0.95 }}
                         transition={{ duration: 0.2 }}
@@ -190,9 +200,9 @@ export default function Navbar() {
                         width: '40px',
                         height: '40px',
                         borderRadius: '50%',
-                        background: isMobileMenuOpen ? 'rgba(255,255,255,0.1)' : 'transparent',
+                        background: isMobileMenuOpen ? 'rgba(16, 185, 129, 0.1)' : 'transparent',
                         border: 'none',
-                        color: '#FAFAFA',
+                        color: '#F0F0F5',
                         display: 'flex',
                         alignItems: 'center',
                         justifyContent: 'center',
@@ -218,16 +228,16 @@ export default function Navbar() {
                             left: '16px',
                             right: '16px',
                             padding: '20px',
-                            background: 'rgba(20, 20, 22, 0.95)',
+                            background: 'rgba(10, 10, 15, 0.95)',
                             backdropFilter: 'blur(30px)',
-                            border: '1px solid rgba(255, 255, 255, 0.08)',
+                            border: '1px solid rgba(16, 185, 129, 0.1)',
                             borderRadius: '24px',
                             display: 'flex',
                             flexDirection: 'column',
                             gap: '8px',
                             zIndex: 99,
                             pointerEvents: 'auto',
-                            boxShadow: '0 20px 60px rgba(0, 0, 0, 0.5)'
+                            boxShadow: '0 20px 60px rgba(0, 0, 0, 0.6), 0 0 40px rgba(16, 185, 129, 0.05)'
                         }}
                         className="md:hidden"
                     >
@@ -241,8 +251,8 @@ export default function Navbar() {
                                 style={{
                                     padding: '16px',
                                     borderRadius: '16px',
-                                    background: 'rgba(255,255,255,0.03)',
-                                    color: '#A1A1AA',
+                                    background: 'rgba(16, 185, 129, 0.03)',
+                                    color: '#9CA3AF',
                                     textDecoration: 'none',
                                     fontSize: '15px',
                                     fontWeight: 500,
