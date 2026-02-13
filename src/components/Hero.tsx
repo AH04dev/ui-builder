@@ -40,11 +40,10 @@ export default function Hero() {
             {/* ColorBends Background */}
             <div style={{
                 position: 'absolute',
-                top: '50%',
-                left: '50%',
-                transform: 'translate(-50%, -50%)',
-                width: '1080px',
-                height: '1080px',
+                top: 0,
+                left: 0,
+                width: '100%',
+                height: '100%',
                 zIndex: 0,
             }}>
                 <ColorBends
