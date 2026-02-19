@@ -1,8 +1,9 @@
-﻿'use client';
+'use client';
 
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { Github, Globe, Sparkles } from 'lucide-react';
+import { Github, Globe } from 'lucide-react';
+import { BrandLogo } from './BrandLogo';
 
 const groups = [
   {
@@ -38,12 +39,7 @@ export default function Footer() {
         <div className="glass rounded-3xl p-6 md:p-8">
           <div className="grid gap-8 md:grid-cols-[1.2fr_1fr_1fr_1fr]">
             <div>
-              <div className="flex items-center gap-2.5">
-                <span className="inline-flex h-9 w-9 items-center justify-center rounded-xl border border-cyan-400/20 bg-cyan-400/8">
-                  <Sparkles size={16} color="#38bdf8" />
-                </span>
-                <p className="font-display text-lg font-semibold text-white">Native Bits</p>
-              </div>
+              <BrandLogo textClassName="text-lg text-white" />
               <p className="mt-3 max-w-xs text-sm leading-7 text-[var(--text-dim)]">
                 Rebuilt mobile UI system with consistent React Native and Flutter implementations.
               </p>
@@ -93,7 +89,7 @@ export default function Footer() {
           </div>
 
           <div className="mt-8 border-t border-white/6 pt-4 text-xs text-[var(--text-muted)]">
-            <p>Copyright {new Date().getFullYear()} Native Bits. Rebuilt mobile UI experience.</p>
+            <p>Copyright {new Date().getFullYear()} native-bits. Rebuilt mobile UI experience.</p>
           </div>
         </div>
       </div>

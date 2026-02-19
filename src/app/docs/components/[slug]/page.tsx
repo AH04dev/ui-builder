@@ -1,9 +1,9 @@
-﻿'use client';
+'use client';
 
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
-import { ArrowLeft, Check, Copy, Package2 } from 'lucide-react';
+import { ArrowLeft, Check, Copy, Download, Package2, Terminal, Wand2 } from 'lucide-react';
 import { Footer, Navbar } from '@/components';
 import { getRegistryItem } from '@/registry';
 import { useParams } from 'next/navigation';
@@ -17,9 +17,8 @@ export default function ComponentDocPage() {
   const slug = params.slug as string;
   const found = getRegistryItem(slug);
   const item = found?.category === 'component' ? found : undefined;
-  const installCommand = shadcnRegistryCatalog.some((entry) => entry.name === slug)
-    ? `npx shadcn@latest add ${SHADCN_REGISTRY_NAMESPACE}/${slug}`
-    : `npx native-bits add ${slug}`;
+  const catalogEntry = shadcnRegistryCatalog.find((entry) => entry.name === slug);
+  const installCommand = `npx shadcn@latest add ${SHADCN_REGISTRY_NAMESPACE}/${slug}`;
 
   const [code, setCode] = useState('');
   const [copiedInstall, setCopiedInstall] = useState(false);
@@ -44,6 +43,17 @@ export default function ComponentDocPage() {
     await navigator.clipboard.writeText(code);
     setCopiedCode(true);
     setTimeout(() => setCopiedCode(false), 1600);
+  };
+
+  const downloadSource = () => {
+    if (!code) return;
+    const blob = new Blob([code], { type: 'text/plain' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `${slug}.tsx`;
+    a.click();
+    URL.revokeObjectURL(url);
   };
 
   if (!item) {
@@ -116,6 +126,35 @@ export default function ComponentDocPage() {
                 </div>
               </div>
             </div>
+
+            {/* Sandbox + Download actions */}
+            <div className="mt-4 flex flex-wrap gap-2">
+              <Link
+                href="/sandbox"
+                className="btn-solid inline-flex items-center gap-2 text-xs"
+              >
+                <Wand2 size={13} />
+                Try in Sandbox
+              </Link>
+              <button type="button" onClick={downloadSource} className="btn-outline text-xs">
+                <Download size={13} />
+                Download .tsx
+              </button>
+            </div>
+
+            {/* Categories */}
+            {catalogEntry?.categories && (
+              <div className="mt-4 flex flex-wrap gap-1.5">
+                {catalogEntry.categories.map((cat) => (
+                  <span
+                    key={cat}
+                    className="rounded-full border border-white/8 bg-white/4 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-[0.08em] text-[var(--text-muted)]"
+                  >
+                    {cat}
+                  </span>
+                ))}
+              </div>
+            )}
           </motion.div>
 
           <section className="glass mt-6 overflow-hidden rounded-3xl">
@@ -147,6 +186,16 @@ export default function ComponentDocPage() {
               </table>
             </div>
           </section>
+
+          {/* Usage docs from catalog */}
+          {catalogEntry?.docs && (
+            <section className="glass mt-6 rounded-3xl p-4 md:p-5">
+              <h2 className="font-display mb-3 text-xl font-semibold text-white">Usage</h2>
+              <pre className="overflow-x-auto rounded-2xl border border-white/10 bg-slate-950/70 p-4 text-xs leading-6 text-slate-200">
+                <code>{catalogEntry.docs.replace(/^### Usage\n/, '')}</code>
+              </pre>
+            </section>
+          )}
 
           <section className="code-shell mt-6 rounded-3xl p-4 md:p-5">
             <div className="mb-3 flex items-center justify-between">

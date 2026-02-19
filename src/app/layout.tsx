@@ -1,4 +1,4 @@
-﻿import type { Metadata } from 'next';
+import type { Metadata } from 'next';
 import { Manrope, Sora } from 'next/font/google';
 import './globals.css';
 
@@ -15,11 +15,12 @@ const sora = Sora({
 });
 
 export const metadata: Metadata = {
-  title: 'Native Bits | Mobile UI for React Native and Flutter',
+  title: 'Native Bits | UI components for mobiles',
   description:
     'Production-ready React Native and Flutter UI components with smooth motion patterns and mobile-first demos.',
   keywords: [
     'react native ui',
+    'mobile ui components',
     'flutter ui',
     'mobile animations',
     'cross platform components',

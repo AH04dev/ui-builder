@@ -1,4 +1,4 @@
-﻿'use client';
+'use client';
 
 import { motion } from 'framer-motion';
 import { Bolt, Brush, Fingerprint, Gauge, LayoutGrid, ShieldCheck } from 'lucide-react';
@@ -8,37 +8,37 @@ const items = [
     title: 'Reusable architecture',
     text: 'Compose screens quickly with cards, toggles, inputs, and list primitives.',
     icon: LayoutGrid,
-    color: '#38bdf8',
+    color: '#35d8ff',
   },
   {
     title: 'Smooth interactions',
     text: 'Motion defaults are tuned for touch devices and low-jank transitions.',
     icon: Bolt,
-    color: '#818cf8',
+    color: '#15a9e9',
   },
   {
     title: 'Gesture-aware',
     text: 'Swipe, drag, and dismiss patterns are included and production-safe.',
     icon: Fingerprint,
-    color: '#c084fc',
+    color: '#74d9ff',
   },
   {
     title: 'High readability',
     text: 'Visual hierarchy and spacing prioritize clarity on small screens.',
     icon: Brush,
-    color: '#38bdf8',
+    color: '#35d8ff',
   },
   {
     title: 'Performance targets',
     text: 'Examples are designed to hold 60fps on modern mobile hardware.',
     icon: Gauge,
-    color: '#818cf8',
+    color: '#15a9e9',
   },
   {
     title: 'Shipping guardrails',
     text: 'Patterns include defaults for status states and accessibility basics.',
     icon: ShieldCheck,
-    color: '#c084fc',
+    color: '#74d9ff',
   },
 ];
 
@@ -89,3 +89,4 @@ export default function Features() {
     </section>
   );
 }
+

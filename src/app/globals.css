@@ -1,40 +1,41 @@
-﻿@import "tailwindcss";
+@import "tailwindcss";
 @import "tw-animate-css";
 
 :root {
-  --bg-0: #08090E;
-  --bg-1: #0B0D14;
-  --bg-2: #0F1119;
+  color-scheme: dark;
+  --bg-0: #020914;
+  --bg-1: #041225;
+  --bg-2: #071A31;
   --card: rgba(255, 255, 255, 0.04);
   --card-strong: rgba(255, 255, 255, 0.07);
-  --line: rgba(255, 255, 255, 0.08);
-  --line-strong: rgba(124, 168, 255, 0.22);
-  --text: #E8ECF4;
-  --text-dim: #8B95A8;
-  --text-muted: #586274;
-  --text-primary: #F0F4FA;
-  --text-secondary: #8B95A8;
-  --accent: #38bdf8;
-  --accent-2: #818cf8;
-  --accent-warm: rgba(129, 140, 248, 0.12);
+  --line: rgba(134, 184, 232, 0.16);
+  --line-strong: rgba(53, 216, 255, 0.30);
+  --text: #E7F3FF;
+  --text-dim: #9EB6CF;
+  --text-muted: #6E89A4;
+  --text-primary: #F3FAFF;
+  --text-secondary: #9EB6CF;
+  --accent: #35D8FF;
+  --accent-2: #15A9E9;
+  --accent-warm: rgba(21, 169, 233, 0.18);
 
   --radius: 0.9rem;
-  --background: #08090E;
-  --foreground: #E8ECF4;
-  --card-foreground: #E8ECF4;
-  --popover: #0F1119;
-  --popover-foreground: #E8ECF4;
-  --primary: #38bdf8;
-  --primary-foreground: #08090E;
+  --background: #020914;
+  --foreground: #E7F3FF;
+  --card-foreground: #E7F3FF;
+  --popover: #071A31;
+  --popover-foreground: #E7F3FF;
+  --primary: #35D8FF;
+  --primary-foreground: #041221;
   --secondary: rgba(255, 255, 255, 0.06);
-  --secondary-foreground: #E8ECF4;
+  --secondary-foreground: #E7F3FF;
   --muted: rgba(255, 255, 255, 0.04);
-  --muted-foreground: #586274;
-  --accent-foreground: #08090E;
+  --muted-foreground: #6E89A4;
+  --accent-foreground: #041221;
   --destructive: #ef4444;
-  --border: rgba(255, 255, 255, 0.08);
-  --input: rgba(255, 255, 255, 0.06);
-  --ring: #38bdf8;
+  --border: rgba(134, 184, 232, 0.20);
+  --input: rgba(255, 255, 255, 0.08);
+  --ring: #35D8FF;
 }
 
 * {
@@ -52,8 +53,9 @@ body {
   font-family: var(--font-body), 'Segoe UI', sans-serif;
   line-height: 1.65;
   background:
-    radial-gradient(ellipse 80% 50% at 50% -12%, rgba(56, 189, 248, 0.10), transparent),
-    radial-gradient(ellipse 60% 40% at 80% 60%, rgba(129, 140, 248, 0.06), transparent),
+    radial-gradient(ellipse 80% 50% at 50% -12%, rgba(53, 216, 255, 0.14), transparent),
+    radial-gradient(ellipse 70% 50% at 86% 64%, rgba(15, 94, 166, 0.20), transparent),
+    radial-gradient(ellipse 55% 40% at 12% 88%, rgba(21, 169, 233, 0.10), transparent),
     linear-gradient(180deg, var(--bg-0) 0%, var(--bg-1) 50%, var(--bg-2) 100%);
   background-attachment: fixed;
   overflow-x: hidden;
@@ -101,8 +103,8 @@ a {
   text-transform: uppercase;
   letter-spacing: 0.08em;
   color: var(--accent);
-  border: 1px solid rgba(56, 189, 248, 0.2);
-  background: rgba(56, 189, 248, 0.08);
+  border: 1px solid rgba(53, 216, 255, 0.34);
+  background: rgba(53, 216, 255, 0.10);
 }
 
 .section-title {
@@ -119,21 +121,21 @@ a {
 }
 
 .text-gradient-cyan {
-  background: linear-gradient(135deg, #38bdf8 0%, #818cf8 50%, #c084fc 100%);
+  background: linear-gradient(135deg, #74d9ff 0%, #35d8ff 45%, #15a9e9 100%);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 .text-gradient-warm {
-  background: linear-gradient(135deg, #818cf8 0%, #38bdf8 50%, #67e8f9 100%);
+  background: linear-gradient(135deg, #35d8ff 0%, #15a9e9 50%, #0f5ea6 100%);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 .text-gradient-violet {
-  background: linear-gradient(135deg, #c084fc 0%, #818cf8 50%, #38bdf8 100%);
+  background: linear-gradient(135deg, #8be7ff 0%, #35d8ff 45%, #0f5ea6 100%);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -197,17 +199,17 @@ a {
   gap: 0.45rem;
   border-radius: 999px;
   border: none;
-  color: #08090E;
+  color: #031526;
   font-weight: 700;
   font-size: 0.9rem;
   padding: 0.7rem 1.2rem;
   cursor: pointer;
-  background: linear-gradient(135deg, #38bdf8 0%, #818cf8 100%);
+  background: linear-gradient(135deg, #74d9ff 0%, #35d8ff 40%, #15a9e9 100%);
   transition: box-shadow 0.2s, transform 0.15s;
 }
 
 .btn-solid:hover {
-  box-shadow: 0 0 24px rgba(56, 189, 248, 0.25);
+  box-shadow: 0 0 24px rgba(53, 216, 255, 0.38);
   transform: translateY(-1px);
 }
 
@@ -254,9 +256,9 @@ a {
 }
 
 .platform-chip.active {
-  color: #08090E;
+  color: #031526;
   border-color: transparent;
-  background: linear-gradient(135deg, #38bdf8 0%, #818cf8 100%);
+  background: linear-gradient(135deg, #74d9ff 0%, #35d8ff 40%, #15a9e9 100%);
 }
 
 ::-webkit-scrollbar {
@@ -277,8 +279,8 @@ a {
 }
 
 ::selection {
-  background: rgba(56, 189, 248, 0.28);
-  color: #f8fbff;
+  background: rgba(53, 216, 255, 0.32);
+  color: #f3fbff;
 }
 
 @theme inline {

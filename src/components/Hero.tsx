@@ -1,4 +1,4 @@
-﻿'use client';
+'use client';
 
 import Link from 'next/link';
 import { motion } from 'framer-motion';
@@ -61,7 +61,7 @@ export default function Hero() {
                   key={item}
                   className="inline-flex items-center gap-2 rounded-full border border-white/8 bg-white/4 px-3 py-1.5 text-xs text-[var(--text-dim)]"
                 >
-                  <CheckCircle2 size={13} color="#38bdf8" />
+                  <CheckCircle2 size={13} color="#35d8ff" />
                   {item}
                 </span>
               ))}
@@ -106,7 +106,7 @@ export default function Hero() {
                     animate={{ width: '72%' }}
                     transition={{ duration: 1.1, delay: 0.2, ease: 'easeOut' }}
                     className="h-2 rounded-full"
-                    style={{ background: 'linear-gradient(90deg, #38bdf8 0%, #818cf8 100%)' }}
+                    style={{ background: 'linear-gradient(90deg, #35d8ff 0%, #15a9e9 100%)' }}
                   />
                 </div>
               </div>
@@ -128,3 +128,4 @@ export default function Hero() {
     </section>
   );
 }
+

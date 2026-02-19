@@ -1,4 +1,4 @@
-﻿'use client';
+'use client';
 
 import { useCallback, useRef, useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
@@ -124,8 +124,8 @@ function DynamicPreview({ parsed }: { parsed: ParsedPreview | null }) {
     );
   }
 
-  const primary = parsed.colors[0] ?? '#38bdf8';
-  const secondary = parsed.colors[1] ?? '#818cf8';
+  const primary = parsed.colors[0] ?? '#35d8ff';
+  const secondary = parsed.colors[1] ?? '#15a9e9';
   const bg = parsed.hasGradient
     ? `linear-gradient(135deg, ${primary}, ${secondary})`
     : primary;
@@ -368,7 +368,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 24,
     paddingVertical: 14,
     borderRadius: 14,
-    backgroundColor: '#38bdf8',
+    backgroundColor: '#35d8ff',
     alignItems: 'center',
   },
   label: {
@@ -536,7 +536,7 @@ export default function SandboxPage() {
           </div>
 
           <div className="grid gap-4 xl:grid-cols-[1.04fr_0.96fr]">
-            {/* ───────── LEFT: Editor ───────── */}
+            {/* --------- LEFT: Editor --------- */}
             <section className="glass rounded-3xl p-4 md:p-5">
               {/* Toolbar */}
               <div className="mb-3 flex flex-wrap items-center justify-between gap-3">
@@ -548,7 +548,7 @@ export default function SandboxPage() {
                       type="button"
                       onClick={() => switchPlatform(option)}
                       className={`rounded-full px-3 py-1.5 text-xs font-semibold uppercase tracking-[0.08em] transition ${platform === option
-                          ? 'bg-[linear-gradient(135deg,#38bdf8_0%,#818cf8_100%)] text-[#08090E]'
+                          ? 'bg-[linear-gradient(135deg,#35d8ff_0%,#15a9e9_100%)] text-[#031526]'
                           : 'text-[var(--text-dim)] hover:text-[var(--text)]'
                         }`}
                     >
@@ -732,7 +732,7 @@ export default function SandboxPage() {
               </div>
             </section>
 
-            {/* ───────── RIGHT: Preview ───────── */}
+            {/* --------- RIGHT: Preview --------- */}
             <section className="glass rounded-3xl p-4 md:p-5">
               <div className="mb-3 flex flex-wrap items-center justify-between gap-3">
                 <div className="flex flex-wrap gap-1.5">
@@ -811,3 +811,4 @@ export default function SandboxPage() {
     </main>
   );
 }
+

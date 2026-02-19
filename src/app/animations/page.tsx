@@ -1,4 +1,4 @@
-﻿import { Animations, Footer, Navbar } from '@/components';
+import { Animations, Footer, Navbar } from '@/components';
 
 export default function AnimationsPage() {
   return (

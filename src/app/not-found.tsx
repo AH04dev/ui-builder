@@ -1,4 +1,4 @@
-﻿import Link from 'next/link';
+import Link from 'next/link';
 import { Footer, Navbar } from '@/components';
 
 export default function NotFound() {
@@ -21,7 +21,7 @@ export default function NotFound() {
                 className="rounded-full px-5 py-2.5 text-sm font-semibold"
                 style={{
                   color: '#071625',
-                  background: 'linear-gradient(135deg, #38bdf8 0%, #f8fbff 100%)',
+                  background: 'linear-gradient(135deg, #35d8ff 0%, #f8fbff 100%)',
                 }}
               >
                 Back home
@@ -40,4 +40,5 @@ export default function NotFound() {
     </main>
   );
 }
+
 

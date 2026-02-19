@@ -1,4 +1,4 @@
-﻿import { ComponentShowcase, Footer, Navbar } from '@/components';
+import { ComponentShowcase, Footer, Navbar } from '@/components';
 
 export default function ComponentsPage() {
   return (

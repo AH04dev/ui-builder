@@ -1,9 +1,10 @@
-﻿'use client';
+'use client';
 
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { AnimatePresence, motion } from 'framer-motion';
-import { ArrowUpRight, Menu, Sparkles, X } from 'lucide-react';
+import { ArrowUpRight, Menu, X } from 'lucide-react';
+import { BrandLogo } from './BrandLogo';
 
 const navItems = [
   { label: 'Components', href: '/components' },
@@ -42,19 +43,8 @@ export default function Navbar() {
               : '0 4px 16px rgba(0, 0, 0, 0.20)',
           }}
         >
-          <Link href="/" className="flex items-center gap-2.5">
-            <span
-              className="flex h-9 w-9 items-center justify-center rounded-xl"
-              style={{
-                background: 'linear-gradient(145deg, rgba(56, 189, 248, 0.15), rgba(129, 140, 248, 0.15))',
-                border: '1px solid rgba(56, 189, 248, 0.20)',
-              }}
-            >
-              <Sparkles size={17} color="#38bdf8" />
-            </span>
-            <span className="font-display text-base font-semibold text-[var(--text-primary)] md:text-lg">
-              Native Bits
-            </span>
+          <Link href="/" className="flex items-center">
+            <BrandLogo textClassName="text-base md:text-lg" />
           </Link>
 
           <nav className="hidden items-center gap-1 md:flex">

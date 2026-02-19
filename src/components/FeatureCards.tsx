@@ -1,4 +1,4 @@
-﻿'use client';
+'use client';
 
 import Link from 'next/link';
 import { motion } from 'framer-motion';
@@ -10,21 +10,21 @@ const cards = [
     body: 'Production-ready UI building blocks for dashboards, forms, chat, and navigation.',
     href: '/components',
     icon: Blocks,
-    color: '#38bdf8',
+    color: '#35d8ff',
   },
   {
     title: 'Animations',
     body: 'Touch-friendly transitions, list staggering, counters, and gesture-driven effects.',
     href: '/animations',
     icon: WandSparkles,
-    color: '#818cf8',
+    color: '#15a9e9',
   },
   {
     title: 'Documentation',
     body: 'Install commands, props tables, and direct source snippets for each item.',
     href: '/docs',
     icon: BookOpen,
-    color: '#c084fc',
+    color: '#74d9ff',
   },
 ];
 
@@ -82,3 +82,4 @@ export default function FeatureCards() {
     </section>
   );
 }
+

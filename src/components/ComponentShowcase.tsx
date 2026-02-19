@@ -1,4 +1,4 @@
-﻿'use client';
+'use client';
 
 import Link from 'next/link';
 import { useMemo, useState } from 'react';
@@ -14,7 +14,7 @@ function Preview({ slug, palette }: { slug: string; palette: [string, string] })
       return (
         <button
           className="rounded-xl px-5 py-2.5 text-sm font-semibold"
-          style={{ background: gradient, color: '#08090E' }}
+          style={{ background: gradient, color: '#031526' }}
         >
           Continue
         </button>
@@ -101,7 +101,7 @@ export default function ComponentShowcase({ previewOnly = false }: { previewOnly
                     type="button"
                     onClick={() => setPlatform(option)}
                     className={`rounded-full px-3 py-1.5 text-xs font-semibold uppercase tracking-[0.08em] transition ${platform === option
-                        ? 'bg-[linear-gradient(135deg,#38bdf8_0%,#818cf8_100%)] text-[#08090E]'
+                        ? 'bg-[linear-gradient(135deg,#35d8ff_0%,#15a9e9_100%)] text-[#031526]'
                         : 'text-[var(--text-dim)] hover:text-[var(--text)]'
                       }`}
                   >
@@ -228,3 +228,4 @@ export default function ComponentShowcase({ previewOnly = false }: { previewOnly
     </section>
   );
 }
+

@@ -1,4 +1,4 @@
-﻿'use client';
+'use client';
 
 import Link from 'next/link';
 import { useMemo, useState } from 'react';
@@ -92,7 +92,7 @@ export default function Animations({ previewOnly = false }: { previewOnly?: bool
                     type="button"
                     onClick={() => setPlatform(option)}
                     className={`rounded-full px-3 py-1.5 text-xs font-semibold uppercase tracking-[0.08em] transition ${platform === option
-                        ? 'bg-[linear-gradient(135deg,#38bdf8_0%,#818cf8_100%)] text-[#08090E]'
+                        ? 'bg-[linear-gradient(135deg,#35d8ff_0%,#15a9e9_100%)] text-[#031526]'
                         : 'text-[var(--text-dim)] hover:text-[var(--text)]'
                       }`}
                   >
@@ -108,7 +108,7 @@ export default function Animations({ previewOnly = false }: { previewOnly?: bool
                     type="button"
                     onClick={() => setGroup(item)}
                     className={`rounded-full border px-2.5 py-1 text-[11px] font-semibold uppercase tracking-[0.08em] transition ${group === item
-                        ? 'border-violet-400/30 bg-violet-400/10 text-violet-300'
+                        ? 'border-cyan-400/35 bg-cyan-400/12 text-cyan-300'
                         : 'border-white/8 bg-white/4 text-[var(--text-muted)] hover:text-[var(--text-dim)]'
                       }`}
                   >
@@ -219,3 +219,4 @@ export default function Animations({ previewOnly = false }: { previewOnly?: bool
     </section>
   );
 }
+

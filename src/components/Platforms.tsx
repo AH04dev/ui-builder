@@ -1,4 +1,4 @@
-﻿'use client';
+'use client';
 
 import { motion } from 'framer-motion';
 import { CheckCircle2, Code2, Smartphone } from 'lucide-react';
@@ -29,7 +29,7 @@ export default function Platforms() {
           <article className="glass rounded-3xl p-5 md:p-6">
             <div className="mb-4 flex items-center gap-3">
               <span className="inline-flex rounded-xl border border-cyan-400/20 bg-cyan-400/8 p-2.5">
-                <Smartphone size={16} color="#38bdf8" />
+                <Smartphone size={16} color="#35d8ff" />
               </span>
               <div>
                 <h3 className="font-display text-xl font-semibold text-white">React Native</h3>
@@ -40,7 +40,7 @@ export default function Platforms() {
             <div className="space-y-2">
               {rnBullets.map((item) => (
                 <p key={item} className="flex items-center gap-2 text-sm text-[var(--text-dim)]">
-                  <CheckCircle2 size={14} color="#38bdf8" />
+                  <CheckCircle2 size={14} color="#35d8ff" />
                   {item}
                 </p>
               ))}
@@ -59,8 +59,8 @@ export default function Platforms() {
 
           <article className="glass rounded-3xl p-5 md:p-6">
             <div className="mb-4 flex items-center gap-3">
-              <span className="inline-flex rounded-xl border border-violet-400/20 bg-violet-400/8 p-2.5">
-                <Code2 size={16} color="#818cf8" />
+              <span className="inline-flex rounded-xl border border-cyan-400/25 bg-cyan-400/10 p-2.5">
+                <Code2 size={16} color="#15a9e9" />
               </span>
               <div>
                 <h3 className="font-display text-xl font-semibold text-white">Flutter</h3>
@@ -71,7 +71,7 @@ export default function Platforms() {
             <div className="space-y-2">
               {flBullets.map((item) => (
                 <p key={item} className="flex items-center gap-2 text-sm text-[var(--text-dim)]">
-                  <CheckCircle2 size={14} color="#818cf8" />
+                  <CheckCircle2 size={14} color="#15a9e9" />
                   {item}
                 </p>
               ))}
@@ -92,3 +92,4 @@ SegmentedControl(
     </section>
   );
 }
+

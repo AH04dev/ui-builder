@@ -60,7 +60,7 @@ export default function Pricing() {
                             viewport={{ once: true }}
                             transition={{ duration: 0.5, delay: index * 0.08 }}
                             className={`relative rounded-3xl ${plan.popular
-                                    ? 'bg-gradient-to-br from-cyan-400/60 via-violet-500/60 to-violet-600/60 p-[1px]'
+                                    ? 'bg-gradient-to-br from-cyan-400/60 via-sky-500/60 to-blue-600/60 p-[1px]'
                                     : ''
                                 }`}
                         >
@@ -71,7 +71,7 @@ export default function Pricing() {
                                     }`}
                             >
                                 {plan.popular && (
-                                    <div className="absolute -top-3 left-1/2 -translate-x-1/2 inline-flex items-center gap-1 rounded-full bg-gradient-to-r from-cyan-400 to-violet-500 px-3 py-1 text-[11px] font-semibold text-white">
+                                    <div className="absolute -top-3 left-1/2 -translate-x-1/2 inline-flex items-center gap-1 rounded-full bg-gradient-to-r from-cyan-400 to-sky-500 px-3 py-1 text-[11px] font-semibold text-white">
                                         <Zap size={12} />
                                         Most Popular
                                     </div>
