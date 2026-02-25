@@ -33,7 +33,7 @@ const deviceSize: Record<Device, { width: string; height: string }> = {
 };
 
 // ---------------------------------------------------------------------------
-// Code parser — extracts visual info from source code
+// Code parser - extracts visual info from source code
 // ---------------------------------------------------------------------------
 interface ParsedPreview {
   componentName: string;
@@ -124,8 +124,8 @@ function DynamicPreview({ parsed }: { parsed: ParsedPreview | null }) {
     );
   }
 
-  const primary = parsed.colors[0] ?? '#35d8ff';
-  const secondary = parsed.colors[1] ?? '#15a9e9';
+  const primary = parsed.colors[0] ?? '#00f5d4';
+  const secondary = parsed.colors[1] ?? '#7c3aed';
   const bg = parsed.hasGradient
     ? `linear-gradient(135deg, ${primary}, ${secondary})`
     : primary;
@@ -191,7 +191,7 @@ function DynamicPreview({ parsed }: { parsed: ParsedPreview | null }) {
             className="flex items-center gap-2 border px-3 py-2.5"
             style={{ borderRadius: radius, borderColor: `${primary}50`, background: 'rgba(255,255,255,0.04)' }}
           >
-            <span className="text-sm text-[var(--text-muted)]">Type here…</span>
+            <span className="text-sm text-[var(--text-muted)]">Type here...</span>
           </div>
         </div>
         <p className="text-[10px] uppercase tracking-widest text-[var(--text-muted)]">
@@ -324,7 +324,7 @@ function DynamicPreview({ parsed }: { parsed: ParsedPreview | null }) {
           <p className="mb-1 text-[10px] uppercase tracking-widest text-[var(--text-muted)]">Props</p>
           {parsed.props.slice(0, 5).map((p) => (
             <div key={p.name} className="flex items-center justify-between text-[11px]">
-              <span className="text-cyan-300">{p.name}</span>
+              <span className="text-[var(--accent)]">{p.name}</span>
               <span className="text-[var(--text-muted)]">{p.value.slice(0, 18)}</span>
             </div>
           ))}
@@ -368,7 +368,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 24,
     paddingVertical: 14,
     borderRadius: 14,
-    backgroundColor: '#35d8ff',
+    backgroundColor: '#00f5d4',
     alignItems: 'center',
   },
   label: {
@@ -501,7 +501,7 @@ export default function SandboxPage() {
 
   const runPreview = () => {
     setRunning(false);
-    addLog('> Parsing code…');
+    addLog('> Parsing code...');
     setTimeout(() => {
       const result = parseCode(code);
       setParsed(result);
@@ -548,7 +548,7 @@ export default function SandboxPage() {
                       type="button"
                       onClick={() => switchPlatform(option)}
                       className={`rounded-full px-3 py-1.5 text-xs font-semibold uppercase tracking-[0.08em] transition ${platform === option
-                          ? 'bg-[linear-gradient(135deg,#35d8ff_0%,#15a9e9_100%)] text-[#031526]'
+                          ? 'bg-[var(--accent)] text-[#04070f]'
                           : 'text-[var(--text-dim)] hover:text-[var(--text)]'
                         }`}
                     >
@@ -585,7 +585,7 @@ export default function SandboxPage() {
                           onClick={startBlank}
                           className="flex w-full items-center gap-2 rounded-xl px-3 py-2 text-left text-sm text-[var(--text-dim)] transition hover:bg-white/6"
                         >
-                          <Plus size={14} className="text-cyan-400" />
+                          <Plus size={14} className="text-[var(--accent)]" />
                           Start blank
                         </button>
 
@@ -602,7 +602,7 @@ export default function SandboxPage() {
                                 type="button"
                                 onClick={() => selectTemplate(item)}
                                 className={`flex w-full items-center gap-2 rounded-xl px-3 py-2 text-left text-sm transition ${selectedItem?.slug === item.slug
-                                    ? 'bg-cyan-400/10 text-cyan-300'
+                                    ? 'bg-[rgba(0,245,212,0.12)] text-[var(--accent)]'
                                     : 'text-[var(--text-dim)] hover:bg-white/6'
                                   }`}
                               >
@@ -619,7 +619,7 @@ export default function SandboxPage() {
 
               {/* File name bar */}
               <div className="mb-2 flex items-center gap-2">
-                <FileCode2 size={13} className="text-cyan-400" />
+                <FileCode2 size={13} className="text-[var(--accent)]" />
                 <input
                   type="text"
                   value={fileName}
@@ -633,7 +633,7 @@ export default function SandboxPage() {
               <div className="code-shell rounded-2xl p-3">
                 <div className="mb-2 flex items-center justify-between">
                   <p className="text-[10px] font-semibold uppercase tracking-[0.1em] text-[var(--text-muted)]">
-                    {platform === 'react-native' ? 'TypeScript — Editable' : 'Dart — Editable'}
+                    {platform === 'react-native' ? 'TypeScript - Editable' : 'Dart - Editable'}
                   </p>
 
                   <div className="flex items-center gap-1.5">
@@ -661,7 +661,7 @@ export default function SandboxPage() {
                   value={code}
                   onChange={(e) => setCode(e.target.value)}
                   spellCheck={false}
-                  className="h-[340px] w-full resize-none rounded-xl border border-white/6 bg-black/30 p-3 font-mono text-xs leading-6 text-slate-300 outline-none selection:bg-cyan-400/20"
+                  className="h-[340px] w-full resize-none rounded-xl border border-white/6 bg-black/30 p-3 font-mono text-xs leading-6 text-slate-300 outline-none selection:bg-[rgba(0,245,212,0.25)]"
                 />
               </div>
 
@@ -701,7 +701,7 @@ export default function SandboxPage() {
                     className="overflow-hidden"
                   >
                     <div className="mt-3 flex items-center gap-2 rounded-2xl border border-white/6 bg-black/20 px-4 py-3">
-                      <code className="flex-1 font-mono text-xs text-cyan-300">{cliCommand}</code>
+                      <code className="flex-1 font-mono text-xs text-[var(--accent)]">{cliCommand}</code>
                       <button
                         type="button"
                         onClick={async () => {
@@ -746,7 +746,7 @@ export default function SandboxPage() {
                       type="button"
                       onClick={() => setDevice(id)}
                       className={`rounded-full border p-2 transition ${device === id
-                          ? 'border-cyan-400/30 bg-cyan-400/10 text-cyan-300'
+                          ? 'border-[var(--line-strong)] bg-[rgba(0,245,212,0.12)] text-[var(--accent)]'
                           : 'border-white/8 bg-white/4 text-[var(--text-dim)] hover:border-white/15'
                         }`}
                     >
@@ -791,7 +791,7 @@ export default function SandboxPage() {
                           {[0, 1, 2].map((dot) => (
                             <motion.span
                               key={dot}
-                              className="h-2.5 w-2.5 rounded-full bg-cyan-400"
+                              className="h-2.5 w-2.5 rounded-full bg-[var(--accent)]"
                               animate={{ scale: [1, 1.35, 1], opacity: [0.45, 1, 0.45] }}
                               transition={{ duration: 0.8, repeat: Infinity, delay: dot * 0.14 }}
                             />
@@ -811,4 +811,5 @@ export default function SandboxPage() {
     </main>
   );
 }
+
 

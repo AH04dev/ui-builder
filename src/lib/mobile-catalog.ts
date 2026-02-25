@@ -1,4 +1,4 @@
-﻿export type Platform = 'react-native' | 'flutter';
+export type Platform = 'react-native' | 'flutter';
 
 export interface CatalogComponent {
   name: string;
@@ -26,7 +26,7 @@ export const mobileComponents: CatalogComponent[] = [
     slug: 'animated-button',
     category: 'Actions',
     summary: 'Primary CTA button with spring press feedback and gradient fill.',
-    palette: ['#38bdf8', '#f8fbff'],
+    palette: ['#00f5d4', '#f0f2ff'],
     tags: ['CTA', 'Spring', 'Accessible'],
     code: {
       'react-native': `import { AnimatedButton } from 'native-bits';
@@ -50,7 +50,7 @@ AnimatedButton(
     slug: 'glass-card',
     category: 'Surfaces',
     summary: 'Frosted surface card for profile and payment summaries.',
-    palette: ['#38bdf8', '#7d94ff'],
+    palette: ['#00f5d4', '#7c3aed'],
     tags: ['Blur', 'Card', 'Dashboard'],
     code: {
       'react-native': `import { GlassCard } from 'native-bits';
@@ -71,7 +71,7 @@ GlassCard(
     slug: 'input-field',
     category: 'Forms',
     summary: 'Floating label field with validation and icon support.',
-    palette: ['#60a5fa', '#dff3ff'],
+    palette: ['#7c3aed', '#dff3ff'],
     tags: ['Forms', 'Label', 'Validation'],
     code: {
       'react-native': `import { InputField } from 'native-bits';
@@ -95,7 +95,7 @@ InputField(
     slug: 'toggle-switch',
     category: 'Controls',
     summary: 'Animated state toggle for settings and preferences screens.',
-    palette: ['#38bdf8', '#00b8a9'],
+    palette: ['#00f5d4', '#00b8a9'],
     tags: ['Settings', 'State', 'Compact'],
     code: {
       'react-native': `import { ToggleSwitch } from 'native-bits';
@@ -117,7 +117,7 @@ ToggleSwitch(
     slug: 'notification-toast',
     category: 'Feedback',
     summary: 'Top or bottom swipeable toast with success and error states.',
-    palette: ['#f8fbff', '#38bdf8'],
+    palette: ['#f0f2ff', '#00f5d4'],
     tags: ['Toast', 'Status', 'Dismiss'],
     code: {
       'react-native': `import { NotificationToast } from 'native-bits';
@@ -141,7 +141,7 @@ NotificationToast(
     slug: 'floating-action-button',
     category: 'Actions',
     summary: 'Contextual floating action with drag resistance and bounce.',
-    palette: ['#60a5fa', '#dff3ff'],
+    palette: ['#7c3aed', '#dff3ff'],
     tags: ['FAB', 'Navigation', 'Floating'],
     code: {
       'react-native': `import { FloatingActionButton } from 'native-bits';
@@ -163,7 +163,7 @@ FloatingActionButtonPlus(
     slug: 'progress-ring',
     category: 'Data Display',
     summary: 'Circular progress ring with label and animated stroke.',
-    palette: ['#38bdf8', '#7d94ff'],
+    palette: ['#00f5d4', '#7c3aed'],
     tags: ['Progress', 'Chart', 'KPI'],
     code: {
       'react-native': `import { ProgressRing } from 'native-bits';
@@ -187,7 +187,7 @@ ProgressRing(
     slug: 'skeleton-loader',
     category: 'Feedback',
     summary: 'Shimmer placeholder for feed cards and list loading states.',
-    palette: ['#38bdf8', '#60a5fa'],
+    palette: ['#00f5d4', '#7c3aed'],
     tags: ['Loading', 'Shimmer', 'Placeholder'],
     code: {
       'react-native': `import { SkeletonLoader } from 'native-bits';
@@ -211,7 +211,7 @@ SkeletonLoader(
     slug: 'otp-input',
     category: 'Forms',
     summary: 'Multi-cell verification input with focus transitions.',
-    palette: ['#dff3ff', '#60a5fa'],
+    palette: ['#dff3ff', '#7c3aed'],
     tags: ['OTP', 'Auth', 'Keyboard'],
     code: {
       'react-native': `import { OtpInput } from 'native-bits';
@@ -233,7 +233,7 @@ OtpInput(
     slug: 'segmented-control',
     category: 'Controls',
     summary: 'Sliding indicator segmented control for app filters.',
-    palette: ['#38bdf8', '#f8fbff'],
+    palette: ['#00f5d4', '#f0f2ff'],
     tags: ['Tabs', 'Filters', 'Navigation'],
     code: {
       'react-native': `import { SegmentedControl } from 'native-bits';
@@ -257,7 +257,7 @@ SegmentedControl(
     slug: 'chat-bubble',
     category: 'Data Display',
     summary: 'Message bubble with typing state and timestamp support.',
-    palette: ['#38bdf8', '#7d94ff'],
+    palette: ['#00f5d4', '#7c3aed'],
     tags: ['Messaging', 'Chat', 'Realtime'],
     code: {
       'react-native': `import { ChatBubble } from 'native-bits';
@@ -281,7 +281,7 @@ ChatBubble(
     slug: 'bottom-sheet-handle',
     category: 'Surfaces',
     summary: 'Handle + snap indicator for modal sheets and drawers.',
-    palette: ['#60a5fa', '#dff3ff'],
+    palette: ['#7c3aed', '#dff3ff'],
     tags: ['Bottom Sheet', 'Gesture', 'Modal'],
     code: {
       'react-native': `import { BottomSheetHandle } from 'native-bits';
@@ -306,7 +306,7 @@ export const mobileAnimations: CatalogAnimation[] = [
     slug: 'fade-in-up',
     motionType: 'Entrance',
     summary: 'Gentle entrance motion for text blocks and cards.',
-    palette: ['#38bdf8', '#f8fbff'],
+    palette: ['#00f5d4', '#f0f2ff'],
     tags: ['Onboarding', 'Cards', 'Hero'],
     code: {
       'react-native': `import { FadeInUp } from 'native-bits/animations';
@@ -327,7 +327,7 @@ FadeInUp(
     slug: 'scale-pop',
     motionType: 'Entrance',
     summary: 'Elastic scale-in effect ideal for badges and icons.',
-    palette: ['#38bdf8', '#7d94ff'],
+    palette: ['#00f5d4', '#7c3aed'],
     tags: ['Badges', 'Icons', 'Rewards'],
     code: {
       'react-native': `import { ScalePop } from 'native-bits/animations';
@@ -348,7 +348,7 @@ ScalePop(
     slug: 'rotate-in',
     motionType: 'Entrance',
     summary: 'Spin-in motion for action icons and playful alerts.',
-    palette: ['#60a5fa', '#dff3ff'],
+    palette: ['#7c3aed', '#dff3ff'],
     tags: ['Icons', 'Alerts', 'Playful'],
     code: {
       'react-native': `import { RotateIn } from 'native-bits/animations';
@@ -370,7 +370,7 @@ RotateIn(
     slug: 'slide-in-right',
     motionType: 'Entrance',
     summary: 'Horizontal reveal for drawers and panel content.',
-    palette: ['#38bdf8', '#00b8a9'],
+    palette: ['#00f5d4', '#00b8a9'],
     tags: ['Drawer', 'Panels', 'Navigation'],
     code: {
       'react-native': `import { SlideInRight } from 'native-bits/animations';
@@ -391,7 +391,7 @@ SlideInRight(
     slug: 'bounce',
     motionType: 'Loop',
     summary: 'Looping bounce for callouts, pointers, and hints.',
-    palette: ['#f8fbff', '#38bdf8'],
+    palette: ['#f0f2ff', '#00f5d4'],
     tags: ['Hints', 'Pointers', 'Loop'],
     code: {
       'react-native': `import { Bounce } from 'native-bits/animations';
@@ -413,7 +413,7 @@ Bounce(
     slug: 'flip',
     motionType: 'Transition',
     summary: '3D flip transition for cards, deals, and coupons.',
-    palette: ['#38bdf8', '#7d94ff'],
+    palette: ['#00f5d4', '#7c3aed'],
     tags: ['Cards', '3D', 'Offer'],
     code: {
       'react-native': `import { Flip } from 'native-bits/animations';
@@ -434,7 +434,7 @@ Flip(
     slug: 'shimmer',
     motionType: 'Loop',
     summary: 'Sweep shimmer for skeleton screens and placeholders.',
-    palette: ['#38bdf8', '#60a5fa'],
+    palette: ['#00f5d4', '#7c3aed'],
     tags: ['Loader', 'Skeleton', 'Feed'],
     code: {
       'react-native': `import { Shimmer } from 'native-bits/animations';
@@ -453,7 +453,7 @@ Shimmer(
     slug: 'stagger-list',
     motionType: 'Sequence',
     summary: 'Sequential reveal for feed rows and settings lists.',
-    palette: ['#38bdf8', '#f8fbff'],
+    palette: ['#00f5d4', '#f0f2ff'],
     tags: ['List', 'Sequence', 'Feed'],
     code: {
       'react-native': `import { StaggerList } from 'native-bits/animations';
@@ -474,7 +474,7 @@ StaggerList(
     slug: 'parallax-tilt',
     motionType: 'Interactive',
     summary: 'Sensor-like card tilt for product and media previews.',
-    palette: ['#60a5fa', '#dff3ff'],
+    palette: ['#7c3aed', '#dff3ff'],
     tags: ['Parallax', 'Media', 'Interactive'],
     code: {
       'react-native': `import { ParallaxTilt } from 'native-bits/animations';
@@ -495,7 +495,7 @@ ParallaxTilt(
     slug: 'spring-reveal',
     motionType: 'Entrance',
     summary: 'Snappy reveal used for bottom bars and action trays.',
-    palette: ['#38bdf8', '#f8fbff'],
+    palette: ['#00f5d4', '#f0f2ff'],
     tags: ['Tray', 'Bottom Bar', 'Spring'],
     code: {
       'react-native': `import { SpringReveal } from 'native-bits/animations';
@@ -517,7 +517,7 @@ SpringReveal(
     slug: 'swipe-dismiss',
     motionType: 'Gesture',
     summary: 'Swipe-to-dismiss behavior for notifications and items.',
-    palette: ['#60a5fa', '#dff3ff'],
+    palette: ['#7c3aed', '#dff3ff'],
     tags: ['Gesture', 'Dismiss', 'Inbox'],
     code: {
       'react-native': `import { SwipeDismiss } from 'native-bits/animations';
@@ -538,7 +538,7 @@ SwipeDismiss(
     slug: 'number-counter',
     motionType: 'Data',
     summary: 'Smooth counting transition for KPI and finance values.',
-    palette: ['#38bdf8', '#7d94ff'],
+    palette: ['#00f5d4', '#7c3aed'],
     tags: ['Analytics', 'Finance', 'KPI'],
     code: {
       'react-native': `import { NumberCounter } from 'native-bits/animations';
@@ -565,4 +565,5 @@ export const mobileStats = [
   { label: 'React Native + Flutter', value: 'Dual API' },
   { label: 'Mobile breakpoints', value: 'Phone first' }
 ];
+
 

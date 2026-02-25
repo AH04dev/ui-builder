@@ -1,16 +1,23 @@
 import type { Metadata } from 'next';
-import { Manrope, Sora } from 'next/font/google';
+import { Bebas_Neue, JetBrains_Mono, Syne } from 'next/font/google';
 import './globals.css';
 
-const manrope = Manrope({
+const syne = Syne({
   subsets: ['latin'],
   variable: '--font-body',
   display: 'swap',
 });
 
-const sora = Sora({
+const bebas = Bebas_Neue({
   subsets: ['latin'],
   variable: '--font-display',
+  display: 'swap',
+  weight: '400',
+});
+
+const jetbrains = JetBrains_Mono({
+  subsets: ['latin'],
+  variable: '--font-mono',
   display: 'swap',
 });
 
@@ -35,7 +42,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${manrope.variable} ${sora.variable} antialiased`}>{children}</body>
+      <body className={`${syne.variable} ${bebas.variable} ${jetbrains.variable} antialiased`}>
+        {children}
+      </body>
     </html>
   );
 }

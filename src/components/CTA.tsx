@@ -59,7 +59,7 @@ export default function CTA() {
             </label>
             <div className="flex flex-col gap-3 sm:flex-row">
               <div className="flex flex-1 items-center gap-2 rounded-full border border-white/8 bg-white/4 px-4 py-2">
-                <Mail size={14} color="#35d8ff" />
+                <Mail size={14} color="var(--accent)" />
                 <input
                   id="cta-email"
                   type="email"

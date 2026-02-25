@@ -20,8 +20,8 @@ export default function NotFound() {
                 href="/"
                 className="rounded-full px-5 py-2.5 text-sm font-semibold"
                 style={{
-                  color: '#071625',
-                  background: 'linear-gradient(135deg, #35d8ff 0%, #f8fbff 100%)',
+                  color: '#04070f',
+                  background: 'linear-gradient(135deg, var(--accent) 0%, #6fffe9 100%)',
                 }}
               >
                 Back home

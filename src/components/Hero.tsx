@@ -29,8 +29,8 @@ export default function Hero() {
             </span>
 
             <h1 className="section-title mt-5">
-              Build premium mobile UI with
-              <span className="text-gradient-cyan"> React Native + Flutter</span>
+              Build premium mobile UI
+              <span className="text-gradient-cyan"> for React Native + Flutter</span>
             </h1>
 
             <p className="section-subtitle mt-5 max-w-xl">
@@ -61,7 +61,7 @@ export default function Hero() {
                   key={item}
                   className="inline-flex items-center gap-2 rounded-full border border-white/8 bg-white/4 px-3 py-1.5 text-xs text-[var(--text-dim)]"
                 >
-                  <CheckCircle2 size={13} color="#35d8ff" />
+                  <CheckCircle2 size={13} color="var(--accent)" />
                   {item}
                 </span>
               ))}
@@ -89,7 +89,7 @@ export default function Hero() {
                   <p className="text-xs uppercase tracking-[0.12em] text-[var(--text-muted)]">Preview</p>
                   <p className="font-display text-2xl font-semibold text-white">Mobile Dashboard</p>
                 </div>
-                <span className="rounded-full border border-emerald-400/30 bg-emerald-400/10 px-2 py-1 text-[10px] font-semibold uppercase tracking-[0.08em] text-emerald-400">
+                <span className="rounded-full border border-[var(--line-strong)] bg-[rgba(0,245,212,0.12)] px-2 py-1 text-[10px] font-semibold uppercase tracking-[0.08em] text-[var(--accent)]">
                   Live
                 </span>
               </div>
@@ -98,7 +98,7 @@ export default function Hero() {
                 <p className="text-xs uppercase tracking-[0.08em] text-[var(--text-muted)]">Weekly active users</p>
                 <div className="mt-2 flex items-end justify-between">
                   <p className="font-display text-4xl font-semibold text-white">184,320</p>
-                  <p className="text-sm font-semibold text-emerald-400">+12.3%</p>
+                  <p className="text-sm font-semibold text-[var(--accent)]">+12.3%</p>
                 </div>
                 <div className="mt-4 h-2 rounded-full bg-white/8">
                   <motion.div
@@ -106,7 +106,7 @@ export default function Hero() {
                     animate={{ width: '72%' }}
                     transition={{ duration: 1.1, delay: 0.2, ease: 'easeOut' }}
                     className="h-2 rounded-full"
-                    style={{ background: 'linear-gradient(90deg, #35d8ff 0%, #15a9e9 100%)' }}
+                    style={{ background: 'linear-gradient(90deg, var(--accent) 0%, var(--purple) 100%)' }}
                   />
                 </div>
               </div>

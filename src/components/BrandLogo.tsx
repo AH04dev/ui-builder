@@ -26,14 +26,14 @@ export function BrandMark({ className }: BrandMarkProps) {
     >
       <defs>
         <linearGradient id={backStrokeId} x1="8" y1="4" x2="40" y2="36" gradientUnits="userSpaceOnUse">
-          <stop stopColor="#092255" />
-          <stop offset="0.55" stopColor="#0F5EA6" />
-          <stop offset="1" stopColor="#1FD0F4" />
+          <stop stopColor="#7c3aed" />
+          <stop offset="0.6" stopColor="#5f2fd6" />
+          <stop offset="1" stopColor="#352064" />
         </linearGradient>
         <linearGradient id={frontStrokeId} x1="24" y1="20" x2="56" y2="52" gradientUnits="userSpaceOnUse">
-          <stop stopColor="#35D8FF" />
-          <stop offset="0.58" stopColor="#15A9E9" />
-          <stop offset="1" stopColor="#74D9FF" />
+          <stop stopColor="#00f5d4" />
+          <stop offset="0.55" stopColor="#6fffe9" />
+          <stop offset="1" stopColor="#f5a623" />
         </linearGradient>
       </defs>
 
@@ -63,13 +63,22 @@ export function BrandLogo({
   className,
   iconClassName,
   textClassName,
-  label = 'native-bits',
+  label = 'NativeBits',
 }: BrandLogoProps) {
+  const [left, ...rest] = label.split('B');
+  const right = rest.length ? `B${rest.join('B')}` : '';
+
   return (
     <span className={cn('inline-flex items-center gap-2.5', className)}>
       <BrandMark className={iconClassName} />
-      <span className={cn('font-display text-base font-semibold text-[var(--text-primary)]', textClassName)}>
-        {label}
+      <span
+        className={cn(
+          'font-display text-2xl leading-none font-normal uppercase tracking-[0.08em] text-[var(--text-primary)]',
+          textClassName
+        )}
+      >
+        {left}
+        {right ? <span style={{ color: 'var(--accent)' }}>{right}</span> : null}
       </span>
     </span>
   );

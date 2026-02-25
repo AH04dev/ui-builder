@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
-import { ArrowLeft, Check, Copy, Download, Sparkles, Terminal, Wand2 } from 'lucide-react';
+import { ArrowLeft, Check, Copy, Download, Sparkles, Wand2 } from 'lucide-react';
 import { Footer, Navbar } from '@/components';
 import { getRegistryItem } from '@/registry';
 import { useParams } from 'next/navigation';
@@ -175,7 +175,7 @@ export default function AnimationDocPage() {
                   {item.props.map((prop, index) => (
                     <tr key={prop.name} className={index % 2 === 0 ? 'bg-white/[0.02]' : 'bg-transparent'}>
                       <td className="px-4 py-3 font-mono text-xs text-white md:px-5">{prop.name}</td>
-                      <td className="px-4 py-3 font-mono text-xs text-cyan-200 md:px-5">{prop.type}</td>
+                      <td className="px-4 py-3 font-mono text-xs text-[var(--accent)] md:px-5">{prop.type}</td>
                       <td className="px-4 py-3 font-mono text-xs text-[var(--text-dim)] md:px-5">
                         {prop.default || '-'}
                       </td>

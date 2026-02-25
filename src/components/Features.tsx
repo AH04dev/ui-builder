@@ -8,37 +8,37 @@ const items = [
     title: 'Reusable architecture',
     text: 'Compose screens quickly with cards, toggles, inputs, and list primitives.',
     icon: LayoutGrid,
-    color: '#35d8ff',
+    color: '#00f5d4',
   },
   {
     title: 'Smooth interactions',
     text: 'Motion defaults are tuned for touch devices and low-jank transitions.',
     icon: Bolt,
-    color: '#15a9e9',
+    color: '#7c3aed',
   },
   {
     title: 'Gesture-aware',
     text: 'Swipe, drag, and dismiss patterns are included and production-safe.',
     icon: Fingerprint,
-    color: '#74d9ff',
+    color: '#f5a623',
   },
   {
     title: 'High readability',
     text: 'Visual hierarchy and spacing prioritize clarity on small screens.',
     icon: Brush,
-    color: '#35d8ff',
+    color: '#00f5d4',
   },
   {
     title: 'Performance targets',
     text: 'Examples are designed to hold 60fps on modern mobile hardware.',
     icon: Gauge,
-    color: '#15a9e9',
+    color: '#7c3aed',
   },
   {
     title: 'Shipping guardrails',
     text: 'Patterns include defaults for status states and accessibility basics.',
     icon: ShieldCheck,
-    color: '#74d9ff',
+    color: '#f5a623',
   },
 ];
 
@@ -89,4 +89,5 @@ export default function Features() {
     </section>
   );
 }
+
 

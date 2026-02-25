@@ -92,7 +92,7 @@ export default function Animations({ previewOnly = false }: { previewOnly?: bool
                     type="button"
                     onClick={() => setPlatform(option)}
                     className={`rounded-full px-3 py-1.5 text-xs font-semibold uppercase tracking-[0.08em] transition ${platform === option
-                        ? 'bg-[linear-gradient(135deg,#35d8ff_0%,#15a9e9_100%)] text-[#031526]'
+                        ? 'bg-[var(--accent)] text-[#04070f]'
                         : 'text-[var(--text-dim)] hover:text-[var(--text)]'
                       }`}
                   >
@@ -108,7 +108,7 @@ export default function Animations({ previewOnly = false }: { previewOnly?: bool
                     type="button"
                     onClick={() => setGroup(item)}
                     className={`rounded-full border px-2.5 py-1 text-[11px] font-semibold uppercase tracking-[0.08em] transition ${group === item
-                        ? 'border-cyan-400/35 bg-cyan-400/12 text-cyan-300'
+                        ? 'border-[var(--line-strong)] bg-[rgba(0,245,212,0.12)] text-[var(--accent)]'
                         : 'border-white/8 bg-white/4 text-[var(--text-muted)] hover:text-[var(--text-dim)]'
                       }`}
                   >
@@ -219,4 +219,5 @@ export default function Animations({ previewOnly = false }: { previewOnly?: bool
     </section>
   );
 }
+
 

@@ -9,7 +9,6 @@ import {
   Copy,
   Layers,
   Sparkles,
-  Terminal,
   TerminalSquare,
   Wand2,
 } from 'lucide-react';
@@ -46,18 +45,19 @@ const steps = [
   },
 ];
 
-// Separate blocks from component/animation items
-const blocks = shadcnRegistryCatalog.filter((i) => i.type === 'registry:block');
+const blocks = shadcnRegistryCatalog.filter((item) => item.type === 'registry:block');
 const registryComponents = shadcnRegistryCatalog.filter(
-  (i) => i.type === 'registry:component' && !i.categories?.includes('animation')
+  (item) => item.type === 'registry:component' && !item.categories?.includes('animation')
 );
-const registryAnimations = shadcnRegistryCatalog.filter(
-  (i) => i.categories?.includes('animation')
+const registryAnimations = shadcnRegistryCatalog.filter((item) =>
+  item.categories?.includes('animation')
 );
 
 export default function DocsPage() {
   const [copied, setCopied] = useState(false);
-  const [activeTab, setActiveTab] = useState<'all' | 'blocks' | 'components' | 'animations'>('all');
+  const [activeTab, setActiveTab] = useState<
+    'all' | 'blocks' | 'components' | 'animations'
+  >('all');
 
   const copyInstall = async () => {
     await navigator.clipboard.writeText(installCommand);
@@ -78,7 +78,6 @@ export default function DocsPage() {
 
       <section className="ui-section pt-28">
         <div className="ui-container">
-          {/* â”€â”€ Hero â”€â”€ */}
           <motion.div
             initial={{ opacity: 0, y: 14 }}
             animate={{ opacity: 1, y: 0 }}
@@ -94,7 +93,7 @@ export default function DocsPage() {
               <span className="text-gradient-cyan"> one command</span>
             </h1>
             <p className="section-subtitle mt-4">
-              {shadcnRegistryCatalog.length} registry items â€” blocks, components & animations â€”
+              {shadcnRegistryCatalog.length} registry items - blocks, components and animations -
               installable via the shadcn CLI.
             </p>
 
@@ -105,15 +104,10 @@ export default function DocsPage() {
             >
               <span className="text-[var(--text-muted)]">$</span>
               {installCommand}
-              {copied ? (
-                <Check size={14} color="#dff3ff" />
-              ) : (
-                <Copy size={14} color="#a7b4d4" />
-              )}
+              {copied ? <Check size={14} color="#dff3ff" /> : <Copy size={14} color="#a7b4d4" />}
             </button>
           </motion.div>
 
-          {/* â”€â”€ Stats â”€â”€ */}
           <div className="mt-8 grid gap-4 md:grid-cols-5">
             {[
               { title: 'Registry items', value: shadcnRegistryCatalog.length },
@@ -126,23 +120,18 @@ export default function DocsPage() {
                 <p className="text-xs uppercase tracking-[0.1em] text-[var(--text-muted)]">
                   {item.title}
                 </p>
-                <p className="mt-2 font-display text-2xl font-semibold text-white">
-                  {item.value}
-                </p>
+                <p className="mt-2 font-display text-2xl font-semibold text-white">{item.value}</p>
               </article>
             ))}
           </div>
 
-          {/* â”€â”€ Getting started â”€â”€ */}
           <div className="mt-8 grid gap-4 lg:grid-cols-3">
             {steps.map((item) => (
               <article key={item.step} className="glass rounded-2xl p-4">
                 <p className="text-xs font-semibold uppercase tracking-[0.1em] text-[var(--text-muted)]">
                   Step {item.step}
                 </p>
-                <h2 className="font-display mt-2 text-xl font-semibold text-white">
-                  {item.title}
-                </h2>
+                <h2 className="font-display mt-2 text-xl font-semibold text-white">{item.title}</h2>
                 <pre className="code-shell mt-3 overflow-x-auto rounded-xl p-3 text-xs leading-6 text-slate-200">
                   <code>{item.code}</code>
                 </pre>
@@ -150,35 +139,38 @@ export default function DocsPage() {
             ))}
           </div>
 
-          {/* â”€â”€ Sandbox CTA â”€â”€ */}
           <Link
             href="/sandbox"
             className="glass group mt-8 flex items-center justify-between rounded-2xl p-5 transition hover:-translate-y-0.5"
           >
             <div className="flex items-center gap-3">
-              <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-cyan-400/25 to-sky-500/25">
-                <Wand2 size={18} className="text-cyan-400" />
+              <div
+                className="flex h-10 w-10 items-center justify-center rounded-xl border"
+                style={{
+                  borderColor: 'rgba(0,245,212,0.25)',
+                  background: 'rgba(0,245,212,0.12)',
+                }}
+              >
+                <Wand2 size={18} style={{ color: 'var(--accent)' }} />
               </div>
               <div>
-                <h3 className="font-display text-lg font-semibold text-white">
-                  Interactive Sandbox
-                </h3>
+                <h3 className="font-display text-lg font-semibold text-white">Interactive Sandbox</h3>
                 <p className="text-sm text-[var(--text-dim)]">
-                  Build, customize &amp; export components with the live code editor
+                  Build, customize and export components with the live code editor
                 </p>
               </div>
             </div>
-            <ArrowRight size={18} className="text-[var(--text-dim)] transition group-hover:translate-x-1 group-hover:text-white" />
+            <ArrowRight
+              size={18}
+              className="text-[var(--text-dim)] transition group-hover:translate-x-1 group-hover:text-white"
+            />
           </Link>
 
-          {/* â”€â”€ Full Registry â”€â”€ */}
           <section className="mt-10">
             <div className="mb-4 flex flex-wrap items-center justify-between gap-3">
               <div className="flex items-center gap-2">
-                <Layers size={18} color="#35d8ff" />
-                <h2 className="font-display text-2xl font-semibold text-white">
-                  Full registry
-                </h2>
+                <Layers size={18} color="var(--accent)" />
+                <h2 className="font-display text-2xl font-semibold text-white">Full registry</h2>
               </div>
               <div className="flex items-center gap-1 rounded-full border border-white/8 bg-white/4 p-1">
                 {(['all', 'blocks', 'components', 'animations'] as const).map((tab) => (
@@ -186,18 +178,21 @@ export default function DocsPage() {
                     key={tab}
                     type="button"
                     onClick={() => setActiveTab(tab)}
-                    className={`rounded-full px-3 py-1.5 text-xs font-semibold uppercase tracking-[0.08em] transition ${activeTab === tab
-                        ? 'bg-[linear-gradient(135deg,#35d8ff_0%,#15a9e9_100%)] text-[#031526]'
+                    className={`rounded-full px-3 py-1.5 text-xs font-semibold uppercase tracking-[0.08em] transition ${
+                      activeTab === tab
+                        ? 'bg-[var(--accent)] text-[#04070f]'
                         : 'text-[var(--text-dim)] hover:text-[var(--text)]'
-                      }`}
+                    }`}
                   >
-                    {tab} ({tab === 'all'
+                    {tab} (
+                    {tab === 'all'
                       ? shadcnRegistryCatalog.length
                       : tab === 'blocks'
                         ? blocks.length
                         : tab === 'components'
                           ? registryComponents.length
-                          : registryAnimations.length})
+                          : registryAnimations.length}
+                    )
                   </button>
                 ))}
               </div>
@@ -219,17 +214,16 @@ export default function DocsPage() {
                         {item.type.replace('registry:', '')}
                       </span>
                       {item.categories?.slice(0, 2).map((cat) => (
-                        <span key={cat} className="text-[10px] uppercase tracking-widest text-[var(--text-muted)]">
+                        <span
+                          key={cat}
+                          className="text-[10px] uppercase tracking-widest text-[var(--text-muted)]"
+                        >
                           {cat}
                         </span>
                       ))}
                     </div>
-                    <h3 className="font-display text-lg font-semibold text-white">
-                      {item.title}
-                    </h3>
-                    <p className="mt-2 text-sm leading-7 text-[var(--text-dim)]">
-                      {item.description}
-                    </p>
+                    <h3 className="font-display text-lg font-semibold text-white">{item.title}</h3>
+                    <p className="mt-2 text-sm leading-7 text-[var(--text-dim)]">{item.description}</p>
                     <pre className="code-shell mt-3 overflow-x-auto rounded-xl p-2.5 text-[11px] leading-6 text-slate-200">
                       <code>{`npx shadcn@latest add ${SHADCN_REGISTRY_NAMESPACE}/${item.name}`}</code>
                     </pre>
@@ -247,12 +241,11 @@ export default function DocsPage() {
             </div>
           </section>
 
-          {/* â”€â”€ Components grid â”€â”€ */}
           <div className="mt-10 space-y-10">
             <section>
               <div className="mb-4 flex items-center justify-between gap-3">
                 <div className="flex items-center gap-2">
-                  <Layers size={18} color="#35d8ff" />
+                  <Layers size={18} color="var(--accent)" />
                   <h2 className="font-display text-2xl font-semibold text-white">Components</h2>
                 </div>
                 <Link
@@ -268,9 +261,7 @@ export default function DocsPage() {
                 {components.map((item) => (
                   <Link key={item.slug} href={`/docs/components/${item.slug}`}>
                     <article className="glass h-full rounded-2xl p-4 transition hover:-translate-y-0.5">
-                      <h3 className="font-display text-lg font-semibold text-white">
-                        {item.name}
-                      </h3>
+                      <h3 className="font-display text-lg font-semibold text-white">{item.name}</h3>
                       <p className="mt-2 text-sm leading-7 text-[var(--text-dim)]">
                         {item.description}
                       </p>
@@ -283,7 +274,7 @@ export default function DocsPage() {
             <section>
               <div className="mb-4 flex items-center justify-between gap-3">
                 <div className="flex items-center gap-2">
-                  <Sparkles size={18} color="#74d9ff" />
+                  <Sparkles size={18} color="var(--purple)" />
                   <h2 className="font-display text-2xl font-semibold text-white">Animations</h2>
                 </div>
                 <Link
@@ -299,9 +290,7 @@ export default function DocsPage() {
                 {animations.map((item) => (
                   <Link key={item.slug} href={`/docs/animations/${item.slug}`}>
                     <article className="glass h-full rounded-2xl p-4 transition hover:-translate-y-0.5">
-                      <h3 className="font-display text-lg font-semibold text-white">
-                        {item.name}
-                      </h3>
+                      <h3 className="font-display text-lg font-semibold text-white">{item.name}</h3>
                       <p className="mt-2 text-sm leading-7 text-[var(--text-dim)]">
                         {item.description}
                       </p>
@@ -318,4 +307,3 @@ export default function DocsPage() {
     </main>
   );
 }
-

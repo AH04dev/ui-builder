@@ -10,21 +10,21 @@ const cards = [
     body: 'Production-ready UI building blocks for dashboards, forms, chat, and navigation.',
     href: '/components',
     icon: Blocks,
-    color: '#35d8ff',
+    color: '#00f5d4',
   },
   {
     title: 'Animations',
     body: 'Touch-friendly transitions, list staggering, counters, and gesture-driven effects.',
     href: '/animations',
     icon: WandSparkles,
-    color: '#15a9e9',
+    color: '#7c3aed',
   },
   {
     title: 'Documentation',
     body: 'Install commands, props tables, and direct source snippets for each item.',
     href: '/docs',
     icon: BookOpen,
-    color: '#74d9ff',
+    color: '#f5a623',
   },
 ];
 
@@ -82,4 +82,5 @@ export default function FeatureCards() {
     </section>
   );
 }
+
 

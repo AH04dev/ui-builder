@@ -28,8 +28,8 @@ export default function Platforms() {
         <div className="grid gap-4 lg:grid-cols-2">
           <article className="glass rounded-3xl p-5 md:p-6">
             <div className="mb-4 flex items-center gap-3">
-              <span className="inline-flex rounded-xl border border-cyan-400/20 bg-cyan-400/8 p-2.5">
-                <Smartphone size={16} color="#35d8ff" />
+              <span className="inline-flex rounded-xl border p-2.5" style={{ borderColor: 'rgba(0,245,212,0.25)', background: 'rgba(0,245,212,0.12)' }}>
+                <Smartphone size={16} color="var(--accent)" />
               </span>
               <div>
                 <h3 className="font-display text-xl font-semibold text-white">React Native</h3>
@@ -40,7 +40,7 @@ export default function Platforms() {
             <div className="space-y-2">
               {rnBullets.map((item) => (
                 <p key={item} className="flex items-center gap-2 text-sm text-[var(--text-dim)]">
-                  <CheckCircle2 size={14} color="#35d8ff" />
+                  <CheckCircle2 size={14} color="var(--accent)" />
                   {item}
                 </p>
               ))}
@@ -59,8 +59,8 @@ export default function Platforms() {
 
           <article className="glass rounded-3xl p-5 md:p-6">
             <div className="mb-4 flex items-center gap-3">
-              <span className="inline-flex rounded-xl border border-cyan-400/25 bg-cyan-400/10 p-2.5">
-                <Code2 size={16} color="#15a9e9" />
+              <span className="inline-flex rounded-xl border p-2.5" style={{ borderColor: 'rgba(124,58,237,0.3)', background: 'rgba(124,58,237,0.12)' }}>
+                <Code2 size={16} color="var(--purple)" />
               </span>
               <div>
                 <h3 className="font-display text-xl font-semibold text-white">Flutter</h3>
@@ -71,7 +71,7 @@ export default function Platforms() {
             <div className="space-y-2">
               {flBullets.map((item) => (
                 <p key={item} className="flex items-center gap-2 text-sm text-[var(--text-dim)]">
-                  <CheckCircle2 size={14} color="#15a9e9" />
+                  <CheckCircle2 size={14} color="var(--purple)" />
                   {item}
                 </p>
               ))}

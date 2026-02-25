@@ -60,7 +60,7 @@ export default function Pricing() {
                             viewport={{ once: true }}
                             transition={{ duration: 0.5, delay: index * 0.08 }}
                             className={`relative rounded-3xl ${plan.popular
-                                    ? 'bg-gradient-to-br from-cyan-400/60 via-sky-500/60 to-blue-600/60 p-[1px]'
+                                    ? 'bg-[linear-gradient(135deg,rgba(0,245,212,0.62),rgba(124,58,237,0.58),rgba(245,166,35,0.54))] p-[1px]'
                                     : ''
                                 }`}
                         >
@@ -71,7 +71,7 @@ export default function Pricing() {
                                     }`}
                             >
                                 {plan.popular && (
-                                    <div className="absolute -top-3 left-1/2 -translate-x-1/2 inline-flex items-center gap-1 rounded-full bg-gradient-to-r from-cyan-400 to-sky-500 px-3 py-1 text-[11px] font-semibold text-white">
+                                    <div className="absolute -top-3 left-1/2 -translate-x-1/2 inline-flex items-center gap-1 rounded-full bg-[linear-gradient(135deg,var(--accent),var(--purple))] px-3 py-1 text-[11px] font-semibold text-[#04070f]">
                                         <Zap size={12} />
                                         Most Popular
                                     </div>
@@ -88,7 +88,7 @@ export default function Pricing() {
                                 <div className="mb-8 flex-1 space-y-3.5">
                                     {plan.features.map((feature) => (
                                         <div key={feature} className="flex items-center gap-3">
-                                            <Check size={16} className="shrink-0 text-cyan-400" />
+                                            <Check size={16} className="shrink-0 text-[var(--accent)]" />
                                             <span className="text-sm text-[var(--text-dim)]">{feature}</span>
                                         </div>
                                     ))}
