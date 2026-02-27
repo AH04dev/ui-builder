@@ -426,7 +426,8 @@ export default function SandboxPage() {
   const addLog = useCallback((msg: string) => setLogs((p) => [...p, msg]), []);
 
   // ---------- Template selection ----------
-  const selectTemplate = (item: RegistryItem) => {
+  const selectTemplate = useCallback((item: RegistryItem, platformOverride?: Platform) => {
+    const targetPlatform = platformOverride ?? platform;
     setSelectedItem(item);
     const snippet = item.props
       .map((p) => `  ${p.name}: ${p.type}; // ${p.description}`)
@@ -434,23 +435,26 @@ export default function SandboxPage() {
 
     const importName = item.name.replace(/ /g, '');
     const newCode =
-      platform === 'react-native'
+      targetPlatform === 'react-native'
         ? `// native-bits: ${item.name}\n// Dependencies: ${item.dependencies.join(', ')}\n\nimport React from 'react';\nimport { View, StyleSheet } from 'react-native';\n\ninterface ${importName}Props {\n${snippet}\n}\n\nexport default function ${importName}(props: ${importName}Props) {\n  return (\n    <View style={styles.container}>\n      {/* ${item.description} */}\n    </View>\n  );\n}\n\nconst styles = StyleSheet.create({\n  container: {\n    padding: 16,\n    borderRadius: 12,\n  },\n});`
         : `// native-bits: ${item.name}\n// Dependencies: ${item.dependencies.join(', ')}\n\nimport 'package:flutter/material.dart';\n\nclass ${importName} extends StatelessWidget {\n  ${item.props.map((p) => `final ${p.type} ${p.name};`).join('\n  ')}\n\n  const ${importName}({super.key${item.props.map((p) => `, required this.${p.name}`).join('')}});\n\n  @override\n  Widget build(BuildContext context) {\n    // ${item.description}\n    return Container(\n      padding: const EdgeInsets.all(16),\n      decoration: BoxDecoration(\n        borderRadius: BorderRadius.circular(12),\n      ),\n    );\n  }\n}`;
 
+    if (platformOverride) {
+      setPlatform(platformOverride);
+    }
     setCode(newCode);
     setParsed(parseCode(newCode));
-    setFileName(`${item.slug}.tsx`);
+    setFileName(`${item.slug}${targetPlatform === 'react-native' ? '.tsx' : '.dart'}`);
     setPickerOpen(false);
     addLog(`> Loaded template: ${item.name}`);
-  };
+  }, [addLog, platform]);
 
   const startBlank = () => {
     setSelectedItem(null);
     const newCode = blankCode[platform];
     setCode(newCode);
     setParsed(parseCode(newCode));
-    setFileName('my-component.tsx');
+    setFileName(`my-component${platform === 'react-native' ? '.tsx' : '.dart'}`);
     setPickerOpen(false);
     addLog('> Started blank component');
   };
@@ -459,11 +463,12 @@ export default function SandboxPage() {
   const switchPlatform = (p: Platform) => {
     setPlatform(p);
     if (selectedItem) {
-      selectTemplate(selectedItem);
+      selectTemplate(selectedItem, p);
     } else {
       const newCode = blankCode[p];
       setCode(newCode);
       setParsed(parseCode(newCode));
+      setFileName(`my-component${p === 'react-native' ? '.tsx' : '.dart'}`);
     }
   };
 
@@ -490,7 +495,7 @@ export default function SandboxPage() {
 
   const resetCode = () => {
     if (selectedItem) {
-      selectTemplate(selectedItem);
+      selectTemplate(selectedItem, platform);
     } else {
       const newCode = blankCode[platform];
       setCode(newCode);
