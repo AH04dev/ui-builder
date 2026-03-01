@@ -5,37 +5,49 @@
 @layer base {
   :root {
     --background: 0 0% 100%;
-    --foreground: 240 10% 3.9%;
-    --primary: 240 5.9% 10%;
-    --primary-foreground: 0 0% 98%;
-    --secondary: 240 4.8% 95.9%;
-    --secondary-foreground: 240 5.9% 10%;
-    --muted: 240 4.8% 95.9%;
-    --muted-foreground: 240 3.8% 46.1%;
-    --destructive: 0 84.2% 60.2%;
+    --foreground: 230 25% 10%;
+    --primary: 217 92% 55%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 230 20% 93%;
+    --secondary-foreground: 230 25% 15%;
+    --muted: 230 15% 92%;
+    --muted-foreground: 230 10% 45%;
+    --accent: 217 92% 60%;
+    --accent-foreground: 0 0% 100%;
+    --accent-secondary: 265 90% 65%;
+    --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 98%;
-    --border: 240 5.9% 90%;
-    --input: 240 5.9% 90%;
-    --ring: 240 5.9% 10%;
+    --border: 230 15% 88%;
+    --input: 230 15% 88%;
+    --ring: 217 92% 55%;
     --card: 0 0% 100%;
-    --card-foreground: 240 10% 3.9%;
+    --card-foreground: 230 25% 10%;
+    --glass: 230 20% 96%;
+    --glass-border: 230 15% 90%;
+    --surface: 230 15% 97%;
   }
 
   .dark {
-    --background: 240 10% 3.9%;
-    --foreground: 0 0% 98%;
-    --primary: 0 0% 98%;
-    --primary-foreground: 240 5.9% 10%;
-    --secondary: 240 3.7% 15.9%;
-    --secondary-foreground: 0 0% 98%;
-    --muted: 240 3.7% 15.9%;
-    --muted-foreground: 240 5% 64.9%;
+    --background: 230 25% 7%;
+    --foreground: 220 15% 95%;
+    --primary: 217 92% 60%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 230 20% 13%;
+    --secondary-foreground: 220 15% 90%;
+    --muted: 230 20% 14%;
+    --muted-foreground: 230 10% 55%;
+    --accent: 217 92% 60%;
+    --accent-foreground: 0 0% 100%;
+    --accent-secondary: 265 90% 65%;
     --destructive: 0 72% 51%;
     --destructive-foreground: 0 0% 98%;
-    --border: 240 3.7% 15.9%;
-    --input: 240 3.7% 15.9%;
-    --ring: 240 4.9% 83.9%;
-    --card: 240 10% 3.9%;
-    --card-foreground: 0 0% 98%;
+    --border: 230 20% 16%;
+    --input: 230 20% 16%;
+    --ring: 217 92% 60%;
+    --card: 230 22% 10%;
+    --card-foreground: 220 15% 95%;
+    --glass: 230 22% 11%;
+    --glass-border: 230 18% 18%;
+    --surface: 230 22% 9%;
   }
 }

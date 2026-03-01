@@ -1,5 +1,4 @@
-import { Stack } from 'expo-router';
-import { ScrollView, View } from 'react-native';
+import { View } from 'react-native';
 import {
   Button,
   Dialog,
@@ -11,19 +10,20 @@ import {
   DialogTrigger,
   Text,
 } from '~/components/nativewindui';
+import { ShowcaseLayout } from '~/components/ShowcaseLayout';
+import { DemoSection } from '~/components/DemoSection';
 
 export default function DialogScreen() {
   return (
-    <>
-      <Stack.Screen options={{ title: 'Dialog' }} />
-      <ScrollView className="flex-1 bg-background" contentContainerClassName="gap-4 p-4">
-        <Text>
-          Dialog is powered by `@rn-primitives/dialog` and styled via NativeWind.
+    <ShowcaseLayout title="Dialog" subtitle="Modal dialog powered by rn-primitives">
+      <DemoSection title="Confirmation Dialog" description="Classic confirm/cancel pattern">
+        <Text color="secondary" className="mb-4">
+          Tap the button below to open a modal dialog with overlay backdrop.
         </Text>
         <View className="items-start">
           <Dialog>
             <DialogTrigger asChild>
-              <Button label="Open dialog" />
+              <Button label="Open Dialog" />
             </DialogTrigger>
             <DialogContent>
               <DialogTitle>Delete draft?</DialogTitle>
@@ -41,7 +41,30 @@ export default function DialogScreen() {
             </DialogContent>
           </Dialog>
         </View>
-      </ScrollView>
-    </>
+      </DemoSection>
+
+      <DemoSection title="Info Dialog" description="Non-destructive informational modal">
+        <View className="items-start">
+          <Dialog>
+            <DialogTrigger asChild>
+              <Button label="Show Info" variant="secondary" />
+            </DialogTrigger>
+            <DialogContent>
+              <DialogTitle>About CrossBits</DialogTitle>
+              <DialogDescription>
+                CrossBits is a premium React Native component library built with Expo, NativeWind,
+                and rn-primitives. It ships with dark-first design, haptic feedback, and full
+                web support.
+              </DialogDescription>
+              <DialogFooter>
+                <DialogClose asChild>
+                  <Button label="Got it" />
+                </DialogClose>
+              </DialogFooter>
+            </DialogContent>
+          </Dialog>
+        </View>
+      </DemoSection>
+    </ShowcaseLayout>
   );
 }

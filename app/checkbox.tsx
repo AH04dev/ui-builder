@@ -1,12 +1,10 @@
 import * as React from 'react';
-import { Stack } from 'expo-router';
-import { ScrollView, View } from 'react-native';
+import { View } from 'react-native';
 import { Checkbox, Separator, Text } from '~/components/nativewindui';
+import { ShowcaseLayout } from '~/components/ShowcaseLayout';
+import { DemoSection } from '~/components/DemoSection';
 
-type ChecklistItem = {
-  id: string;
-  label: string;
-};
+type ChecklistItem = { id: string; label: string };
 
 const ITEMS: ChecklistItem[] = [
   { id: 'tokens', label: 'Configure theme tokens' },
@@ -23,14 +21,20 @@ export default function CheckboxScreen() {
     deploy: false,
   });
 
+  const completed = Object.values(state).filter(Boolean).length;
+
   return (
-    <>
-      <Stack.Screen options={{ title: 'Checkbox' }} />
-      <ScrollView className="flex-1 bg-background" contentContainerClassName="py-2">
+    <ShowcaseLayout title="Checkbox" subtitle="Accessible checkbox via rn-primitives">
+      <DemoSection
+        title="Task List"
+        description={`${completed} of ${ITEMS.length} completed`}
+      >
         {ITEMS.map((item, index) => (
           <View key={item.id}>
-            <View className="flex-row items-center justify-between px-4 py-3">
-              <Text>{item.label}</Text>
+            <View className="flex-row items-center justify-between py-3">
+              <Text className={state[item.id] ? 'line-through text-muted-foreground' : ''}>
+                {item.label}
+              </Text>
               <Checkbox
                 checked={state[item.id]}
                 onCheckedChange={(checked) =>
@@ -38,10 +42,10 @@ export default function CheckboxScreen() {
                 }
               />
             </View>
-            {index < ITEMS.length - 1 && <Separator className="ml-4" />}
+            {index < ITEMS.length - 1 && <Separator />}
           </View>
         ))}
-      </ScrollView>
-    </>
+      </DemoSection>
+    </ShowcaseLayout>
   );
 }

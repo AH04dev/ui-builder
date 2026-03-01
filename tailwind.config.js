@@ -23,6 +23,11 @@ module.exports = {
           DEFAULT: 'hsl(var(--muted))',
           foreground: 'hsl(var(--muted-foreground))',
         },
+        accent: {
+          DEFAULT: 'hsl(var(--accent))',
+          foreground: 'hsl(var(--accent-foreground))',
+          secondary: 'hsl(var(--accent-secondary))',
+        },
         destructive: {
           DEFAULT: 'hsl(var(--destructive))',
           foreground: 'hsl(var(--destructive-foreground))',
@@ -34,6 +39,11 @@ module.exports = {
           DEFAULT: 'hsl(var(--card))',
           foreground: 'hsl(var(--card-foreground))',
         },
+        glass: {
+          DEFAULT: 'hsl(var(--glass))',
+          border: 'hsl(var(--glass-border))',
+        },
+        surface: 'hsl(var(--surface))',
       },
       borderRadius: {
         '4xl': '2rem',
@@ -41,4 +51,5 @@ module.exports = {
     },
   },
   plugins: [],
+  
 };
