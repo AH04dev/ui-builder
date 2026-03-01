@@ -180,7 +180,7 @@ function HeroSection({ isDesktop }: { isDesktop: boolean }) {
           }}
         />
         <Text style={{ color: BRAND.skyBlue, fontSize: 12, fontWeight: '600', letterSpacing: 0.5 }}>
-          NativeWind v4 + rn-primitives
+          WORK IN PROGRESS
         </Text>
       </Animated.View>
 
@@ -513,7 +513,7 @@ function Footer({ isDesktop }: { isDesktop: boolean }) {
         <Text style={{ color: BRAND.text, fontWeight: '800', fontSize: 16 }}>CrossBits</Text>
       </View>
 
-      <Text style={{ color: 'rgba(233, 247, 255, 0.45)', fontSize: 14 }}>(c) 2026 Native Bits Project. All rights reserved.</Text>
+      <Text style={{ color: 'rgba(233, 247, 255, 0.45)', fontSize: 14 }}>© 2026 Cross bits Project. All rights reserved.</Text>
 
       <View style={{ flexDirection: 'row', gap: 24 }}>
         <Text style={{ color: BRAND.textMuted, fontSize: 14 }}>Privacy</Text>

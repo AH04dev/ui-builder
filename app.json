@@ -39,6 +39,11 @@
       "expo-font",
       "expo-image"
     ],
+    "extra": {
+      "router": {
+        "root": "app"
+      }
+    },
     "experiments": {
       "typedRoutes": true
     }
