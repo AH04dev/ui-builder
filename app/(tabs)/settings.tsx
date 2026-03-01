@@ -25,7 +25,7 @@ export default function SettingsScreen() {
         >
             <GradientHeader
                 title="Settings"
-                subtitle="Customize your CrossBits experience"
+                subtitle="Customize your Cross Bits experience"
             />
 
             {/* ── Appearance ── */}
@@ -82,7 +82,7 @@ export default function SettingsScreen() {
                     <View className="flex-row items-center gap-3">
                         <Info size={18} color="hsl(217, 92%, 60%)" />
                         <View className="flex-1">
-                            <Text variant="heading">CrossBits UI</Text>
+                            <Text variant="heading">Cross Bits UI</Text>
                             <Text variant="caption1" color="secondary">
                                 v1.0.0 · 8 components · Expo + NativeWind
                             </Text>

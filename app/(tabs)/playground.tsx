@@ -53,7 +53,7 @@ export default function PlaygroundScreen() {
                             )}
                             <View className="flex-1">
                                 <View className="flex-row items-center gap-2">
-                                    <CardTitle>CrossBits Card</CardTitle>
+                                    <CardTitle>Cross Bits Card</CardTitle>
                                     {showBadge && <Badge label="New" />}
                                 </View>
                                 <CardDescription>Composed preview component</CardDescription>
@@ -62,7 +62,7 @@ export default function PlaygroundScreen() {
                     </CardHeader>
                     <CardContent>
                         <Text color="secondary">
-                            This card combines Avatar, Badge, Button, and Card to show how CrossBits components
+                            This card combines Avatar, Badge, Button, and Card to show how Cross Bits components
                             work together.
                         </Text>
                     </CardContent>

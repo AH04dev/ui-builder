@@ -18,7 +18,7 @@ export default function CardScreen() {
       <DemoSection title="Basic Card" description="Title + description + body text">
         <Card>
           <CardHeader>
-            <CardTitle>CrossBits UI Card</CardTitle>
+            <CardTitle>Cross Bits UI Card</CardTitle>
             <CardDescription>
               Card primitives give you consistent spacing and hierarchy.
             </CardDescription>

@@ -124,7 +124,7 @@ function GlassyNav() {
     >
       <View style={{ flexDirection: 'row', alignItems: 'center', gap: 12 }}>
         <BrandMark size={38} idSuffix="nav" />
-        <Text style={{ color: BRAND.text, fontWeight: '800', fontSize: 18, letterSpacing: -0.5 }}>CrossBits</Text>
+        <Text style={{ color: BRAND.text, fontWeight: '800', fontSize: 18, letterSpacing: -0.5 }}>Cross Bits</Text>
       </View>
 
       <View style={{ flexDirection: 'row', gap: 32, display: 'flex' }}>
@@ -468,7 +468,7 @@ function ConnectType({ isDesktop }: { isDesktop: boolean }) {
           Join the movement.
         </Text>
         <Text style={{ fontSize: 16, color: BRAND.textMuted, textAlign: 'center', maxWidth: 400, marginBottom: 40, lineHeight: 26 }}>
-          Crossbits is open source. Come build the future of cross-platform UI with us.
+          Cross Bits is open source. Come build the future of cross-platform UI with us.
         </Text>
 
         <View style={{ flexDirection: isDesktop ? 'row' : 'column', gap: 16, width: '100%', justifyContent: 'center' }}>
@@ -510,10 +510,10 @@ function Footer({ isDesktop }: { isDesktop: boolean }) {
     >
       <View style={{ flexDirection: 'row', alignItems: 'center', gap: 8 }}>
         <BrandMark size={28} idSuffix="footer" />
-        <Text style={{ color: BRAND.text, fontWeight: '800', fontSize: 16 }}>CrossBits</Text>
+        <Text style={{ color: BRAND.text, fontWeight: '800', fontSize: 16 }}>Cross Bits</Text>
       </View>
 
-      <Text style={{ color: 'rgba(233, 247, 255, 0.45)', fontSize: 14 }}>© 2026 Cross bits Project. All rights reserved.</Text>
+      <Text style={{ color: 'rgba(233, 247, 255, 0.45)', fontSize: 14 }}>(c) 2026 Cross Bits Project. All rights reserved.</Text>
 
       <View style={{ flexDirection: 'row', gap: 24 }}>
         <Text style={{ color: BRAND.textMuted, fontSize: 14 }}>Privacy</Text>

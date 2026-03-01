@@ -27,6 +27,11 @@ export default function Root({ children }: { children: React.ReactNode }) {
         <meta charSet="utf-8" />
         <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <title>Cross Bits</title>
+        <meta
+          name="description"
+          content="Cross Bits UI components for React Native with polished web support."
+        />
         <meta name="theme-color" content="#020916" />
         <ScrollViewStyleReset />
         <link rel="icon" type="image/svg+xml" href={faviconHref} />

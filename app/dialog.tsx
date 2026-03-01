@@ -50,9 +50,9 @@ export default function DialogScreen() {
               <Button label="Show Info" variant="secondary" />
             </DialogTrigger>
             <DialogContent>
-              <DialogTitle>About CrossBits</DialogTitle>
+              <DialogTitle>About Cross Bits</DialogTitle>
               <DialogDescription>
-                CrossBits is a premium React Native component library built with Expo, NativeWind,
+                Cross Bits is a premium React Native component library built with Expo, NativeWind,
                 and rn-primitives. It ships with dark-first design, haptic feedback, and full
                 web support.
               </DialogDescription>
